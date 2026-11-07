@@ -11,13 +11,19 @@
 	var favicon = document.createElement('link');
 	favicon.rel = 'icon';
 	favicon.type = 'image/png';
-	favicon.href = 'favicon.png';
+	favicon.href = 'favicon-32.png';
+	favicon.sizes = '32x32';
 	document.head.appendChild(favicon);
+
+	var touchIcon = document.createElement('link');
+	touchIcon.rel = 'apple-touch-icon';
+	touchIcon.href = 'apple-touch-icon.png';
+	document.head.appendChild(touchIcon);
 
 	// ---- Header navigation ----
 
 	var links = [
-		{ href: '#',               icon: 'fa-calendar',    label: 'Calendar' },
+		{ href: 'events.html',    icon: 'fa-calendar',    label: 'Events' },
 		{ href: 'fundraiser.html', icon: 'fa-heart',       label: 'Fundraiser' },
 		{ href: 'history.html',    icon: 'fa-book',        label: 'History' },
 		{ href: '#footer',         icon: 'fa-info-circle', label: 'About' }
