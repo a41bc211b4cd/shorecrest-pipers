@@ -472,7 +472,7 @@
 		}
 
 		.hero:before {
-			background: rgba(10, 14, 18, 0.6);
+			background: rgba(10, 14, 18, 0.7);
 			content: '';
 			height: 100%;
 			left: 0;
