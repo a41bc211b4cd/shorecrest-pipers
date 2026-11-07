@@ -1,0 +1,273 @@
+/*
+	pipers.css — branding overrides for the Shorecrest Pipers Club.
+	Loaded after assets/css/main.css, so these rules win where selectors tie.
+
+	Shorecrest High School colors, from the modern Clan Gordon tartan:
+	forest green, old gold, navy. Template background (#242629) already
+	sits close to navy, so we recolor accents only.
+
+	Also contains styles shared by the reading-layout pages (history.html,
+	fundraiser.html), which replace the thumbnail grid used on index.html.
+*/
+
+/* Accent green replaces the template teal (#34a58e) everywhere it appears. */
+
+	a {
+		color: #4f9e69;
+		border-bottom-color: #4f9e69;
+	}
+
+	a:hover {
+		color: #62bb80 !important;
+		border-bottom-color: transparent;
+	}
+
+	input[type="submit"]:hover,
+	input[type="reset"]:hover,
+	input[type="button"]:hover,
+	button:hover,
+	.button:hover {
+		box-shadow: inset 0 0 0 2px #4f9e69;
+		color: #62bb80 !important;
+	}
+
+		input[type="submit"]:hover:active,
+		input[type="reset"]:hover:active,
+		input[type="button"]:hover:active,
+		button:hover:active,
+		.button:hover:active {
+			background-color: rgba(79, 158, 105, 0.15);
+			color: #62bb80 !important;
+		}
+
+	input[type="submit"].primary,
+	input[type="reset"].primary,
+	input[type="button"].primary,
+	button.primary,
+	.button.primary {
+		background-color: #4f9e69;
+	}
+
+		input[type="submit"].primary:hover,
+		input[type="reset"].primary:hover,
+		input[type="button"].primary:hover,
+		button.primary:hover,
+		.button.primary:hover {
+			background-color: #62bb80;
+			color: #ffffff !important;
+		}
+
+			input[type="submit"].primary:hover:active,
+			input[type="reset"].primary:hover:active,
+			input[type="button"].primary:hover:active,
+			button.primary:hover:active {
+				background-color: #3a7d51;
+			}
+
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="email"]:focus,
+	input[type="tel"]:focus,
+	input[type="search"]:focus,
+	input[type="url"]:focus,
+	select:focus,
+	textarea:focus {
+		box-shadow: inset 0 0 0 2px #4f9e69;
+	}
+
+	input[type="checkbox"]:checked + label:before,
+	input[type="radio"]:checked + label:before {
+		background: #4f9e69;
+		border-color: #4f9e69;
+	}
+
+	input[type="checkbox"]:focus + label:before,
+	input[type="radio"]:focus + label:before {
+		box-shadow: 0 0 0 2px #4f9e69;
+	}
+
+	#header nav > ul > li a.active {
+		background-color: #4f9e69;
+		color: #ffffff;
+	}
+
+/* Old gold for the site name; keep the nav links white. */
+
+	#header h1 {
+		color: #c9a227;
+	}
+
+	#header h1 strong {
+		color: #ffffff;
+	}
+
+/* Headings inside the footer panel take the gold. */
+
+	#footer h2 {
+		color: #c9a227;
+	}
+
+/* Reading-page layout, shared by history.html and fundraiser.html. */
+
+	#history,
+	#fundraiser {
+		padding: 3em 2em 3em 2em;
+	}
+
+	#history .history-content,
+	#fundraiser .history-content {
+		margin: 0 auto;
+		max-width: 46em;
+	}
+
+		#history h1,
+		#fundraiser h1 {
+			border-bottom: solid 1px #36383c;
+			font-size: 1.75em;
+			margin-bottom: 1.5em;
+			padding-bottom: 0.75em;
+		}
+
+		#history h2,
+		#fundraiser h2 {
+			color: #c9a227;
+			margin-top: 2.25em;
+		}
+
+		#history p,
+		#fundraiser p {
+			color: #a0a0a1;
+		}
+
+		#history hr,
+		#fundraiser hr {
+			border-bottom: solid 1px #36383c;
+			margin: 3em 0;
+		}
+
+	/* On phones the fixed header sits at the top, so keep extra top
+	   clearance there; slightly tighter side padding for line length. */
+
+	@media screen and (max-width: 736px) {
+
+		#history,
+		#fundraiser {
+			padding: 4.5em 1.25em 3em 1.25em;
+		}
+
+	}
+
+/* Photo figures (history.html). */
+
+	.history-photo {
+		background: #34363b;
+		border: solid 1px #36383c;
+		margin: 2em 0;
+		max-width: 100%;
+	}
+
+		.history-photo img {
+			display: block;
+			width: 100%;
+		}
+
+		.history-photo figcaption {
+			color: #707071;
+			font-size: 0.8em;
+			padding: 0.85em 1em;
+		}
+
+/* Donation-goal bagpipe meter (fundraiser.html).
+
+   The bagpipe is inline SVG in the page. #fill-level is a rectangle
+   clipped to the bag's ellipse; the page script sets its y/height
+   from the RAISED figure. Bag geometry: ellipse cx=215 cy=195
+   rx=95 ry=72, so top=123 and bottom=267 in SVG coordinates. */
+
+	.meter {
+		background: #34363b;
+		border: solid 1px #36383c;
+		margin: 2em 0;
+		padding: 1.5em 1em;
+		text-align: center;
+	}
+
+		.meter svg {
+			display: inline-block;
+			height: auto;
+			max-width: 420px;
+			width: 100%;
+		}
+
+		.meter .meter-amount {
+			color: #ffffff;
+			font-size: 1.25em;
+			font-weight: 300;
+			letter-spacing: 0.1em;
+			margin: 0.75em 0 0.25em 0;
+			text-transform: uppercase;
+		}
+
+		.meter .meter-note {
+			color: #707071;
+			font-size: 0.85em;
+			margin: 0;
+		}
+
+/* Narrow screens: stack the nav below the site title instead of
+   letting it overlap. Applies to the phone layout where the fixed
+   header sits at the top of the viewport. */
+
+	@media screen and (max-width: 736px) {
+
+		#header {
+			height: auto;
+			line-height: 2.4em;
+			padding: 0.75em 1em;
+		}
+
+		#header h1 {
+			display: block;
+			line-height: 1.4em;
+			margin: 0 0 0.4em 0;
+		}
+
+		#header nav {
+			position: static;
+		}
+
+		#header nav > ul {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		#header nav > ul > li a {
+			padding: 0 1em 0 0;
+		}
+
+		body {
+			padding: 7em 0 0 0;
+		}
+
+	}
+
+/* Between phone and desktop widths, tighten the header so the
+   title and four links coexist on one row without overlap. */
+
+	@media screen and (min-width: 737px) and (max-width: 960px) {
+
+		#header h1 {
+			font-size: 0.9em;
+		}
+
+		#header nav > ul > li a {
+			padding: 0 1em;
+		}
+
+	}
+
+/* Gold highlight for emphasized text. */
+
+	.gold {
+		color: #c9a227;
+	}
