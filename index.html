@@ -41,22 +41,16 @@
 	    <nav id="main-nav"></nav>
     </header>
 
-				<!-- Hero (issue #9). Deliberately OUTSIDE #main: main.js applies the poptrox
-				     lightbox to every link in #main, which would hijack these buttons.
-				     The figures come only from assets/js/campaign.js, filled in by
-				     assets/js/hero.js. Without them the text below is what people see. -->
+				<!-- Hero (issue #9): photo, progress bar, Donate. Deliberately OUTSIDE #main:
+				     main.js applies the poptrox lightbox to every link in #main, which would
+				     hijack the button. The figures come only from assets/js/campaign.js,
+				     filled in by assets/js/hero.js. Without them the text below is what people see. -->
 				<section class="hero" aria-label="Pipes for the Pipers fundraiser">
 					<img class="hero-photo" src="images/fulls/fundraiser.jpg" alt="Pipers in green doublets and Gordon kilts posing on a running track at night, with the Shoreline Stadium scoreboard behind them" />
-					<div class="hero-inner">
-						<h2 class="hero-headline">Pipes at Shorecrest since 1961. Help us buy three new sets.</h2>
-						<div class="hero-progress" data-campaign-bar>
-							<div class="track" aria-hidden="true" hidden><div class="fill"></div></div>
-							<p class="label" role="status">Raising money for three new sets of pipes</p>
-						</div>
-						<div class="hero-actions">
-							<a href="fundraiser.html" class="hero-btn donate">Donate</a>
-							<a href="events.html" class="hero-btn hear">Hear us</a>
-						</div>
+					<div class="hero-inner" data-campaign-bar>
+						<div class="track" aria-hidden="true" hidden><div class="fill"></div></div>
+						<p class="label" role="status">Raising money for three new sets of pipes</p>
+						<a href="fundraiser.html" class="hero-btn">Donate</a>
 					</div>
 				</section>
 

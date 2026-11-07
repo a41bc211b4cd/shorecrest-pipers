@@ -381,163 +381,80 @@
 	}
 
 /* ==== Home page hero (issue #9) ====
-   Full-width photo, headline, one line of progress, Donate and Hear us.
-   Sits between #header and #main in index.html, never inside #main (the
-   lightbox would hijack its buttons). Phones: photo on top at its natural
-   shape so every face stays in frame, text below it. 737px and up: text
-   over the photo's lower edge, with a dark scrim only where text sits.
-   The header is at the bottom on desktop and the top on phones; the body
-   padding in main.css and above already reserves its room. Figures come
-   from assets/js/campaign.js via assets/js/hero.js. To remove after the
-   campaign, delete this block, the hero section in index.html and the
-   two script tags for campaign.js and hero.js. */
+   A photo, a thin progress bar, one muted line and a Donate button, in
+   that order, at every width. No text over the photo. Sits between
+   #header and #main in index.html, never inside #main (the lightbox would
+   hijack the button). Figures come from assets/js/campaign.js via
+   assets/js/hero.js. To remove after the campaign, delete this block, the
+   hero section in index.html and the campaign.js and hero.js script tags. */
 
 	.hero {
-		background: #242629;
-		color: #ffffff;
-		position: relative;
-	}
-
-	/* Phone header is a little taller than the body's top padding; small
-	   gap so the photo never tucks under it. */
-	.hero {
-		margin-top: 1em;
+		margin-top: 1em; /* the phone header is slightly taller than the body padding */
 	}
 
 	.hero .hero-photo {
 		aspect-ratio: 4 / 3;
 		display: block;
+		max-height: 70vh;
 		object-fit: cover;
+		object-position: 50% 35%;
 		width: 100%;
 	}
 
 	.hero .hero-inner {
-		padding: 1.5em 1.25em 2em 1.25em;
-		position: relative;
+		margin: 0 auto;
+		max-width: 30em;
+		padding: 2.5em 1.5em 3em 1.5em;
+		text-align: center;
 	}
 
-	.hero .hero-headline {
-		color: #ffffff;
-		font-size: 1.65em;
-		font-weight: 600;
-		letter-spacing: 0;
-		line-height: 1.2;
-		margin: 0 0 1em 0;
-		text-transform: none;
-		text-wrap: balance;
-	}
-
-	.hero .hero-progress {
-		margin: 0 0 1.25em 0;
-		max-width: 28em;
-	}
-
-	.hero .hero-progress .track {
-		background: rgba(255, 255, 255, 0.22);
-		border-radius: 3px;
-		height: 6px;
+	.hero .track {
+		background: rgba(255, 255, 255, 0.14);
+		border-radius: 2px;
+		height: 4px;
 		overflow: hidden;
 	}
 
-	.hero .hero-progress .track[hidden] {
+	.hero .track[hidden] {
 		display: none;
 	}
 
-	.hero .hero-progress .fill {
+	.hero .fill {
 		background: #c9a227;
 		height: 100%;
 		width: 0;
 	}
 
-	.hero .hero-progress .label {
-		color: #ffffff;
-		font-size: 0.9em;
-		line-height: 1.4;
-		margin: 0.6em 0 0 0;
-	}
-
-	.hero .hero-actions {
-		display: flex;
-		gap: 0.75em;
+	.hero .label {
+		color: #9e9e9f;
+		font-size: 0.8em;
+		margin: 1em 0 2em 0;
 	}
 
 	.hero .hero-btn {
+		background: #c9a227;
 		border: 0;
 		border-radius: 4px;
-		flex: 1 1 0;
+		color: #1a1a1a !important;
+		display: inline-block;
 		font-size: 0.85em;
 		font-weight: 600;
 		letter-spacing: 0.1em;
 		line-height: 3.2em;
+		min-width: 12em;
 		text-align: center;
 		text-transform: uppercase;
 	}
 
-	.hero .hero-btn.donate {
-		background: #c9a227;
-		color: #1a1a1a !important;
-	}
-
-		.hero .hero-btn.donate:hover {
+		.hero .hero-btn:hover {
 			background: #dcb73a;
 			color: #1a1a1a !important;
-		}
-
-	.hero .hero-btn.hear {
-		background: rgba(255, 255, 255, 0.14);
-		color: #ffffff !important;
-	}
-
-		.hero .hero-btn.hear:hover {
-			background: rgba(255, 255, 255, 0.24);
-			color: #ffffff !important;
 		}
 
 	@media screen and (min-width: 737px) {
 
 		.hero {
 			margin-top: 0;
-			align-items: flex-end;
-			display: flex;
-			height: clamp(440px, calc(100vh - 4em), 760px);
-			overflow: hidden;
-		}
-
-		.hero .hero-photo {
-			aspect-ratio: auto;
-			height: 100%;
-			left: 0;
-			object-position: 50% 30%;
-			position: absolute;
-			top: 0;
-		}
-
-		/* Scrim: only the lower part, where the text sits. */
-		.hero:before {
-			background: linear-gradient(to bottom, rgba(36, 38, 41, 0) 35%, rgba(36, 38, 41, 0.9) 100%);
-			content: '';
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
-			z-index: 1;
-		}
-
-		.hero .hero-inner {
-			padding: 0 3em 3em 3em;
-			width: 100%;
-			z-index: 2;
-		}
-
-		.hero .hero-headline {
-			font-size: 2.6em;
-			max-width: 16em;
-		}
-
-		.hero .hero-btn {
-			flex: 0 0 auto;
-			min-width: 10em;
 		}
 
 	}

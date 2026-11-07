@@ -17,6 +17,6 @@
 		track.querySelector('.fill').style.width = pct.toFixed(1) + '%';
 		track.hidden = false;
 		bars[i].querySelector('.label').textContent =
-			'$' + c.raised.toLocaleString('en-US') + ' raised of $' + c.goal.toLocaleString('en-US');
+			'$' + c.raised.toLocaleString('en-US') + ' raised of $' + c.goal.toLocaleString('en-US') + ' for three new sets of pipes';
 	}
 })();
