@@ -41,26 +41,35 @@
 	    <nav id="main-nav"></nav>
     </header>
 
+				<!-- Hero (issue #9): photo, progress bar, Donate. Deliberately OUTSIDE #main:
+				     main.js applies the poptrox lightbox to every link in #main, which would
+				     hijack the button. The figures come only from assets/js/campaign.js,
+				     filled in by assets/js/hero.js. Without them the text below is what people see. -->
+				<section class="hero" aria-label="Pipes for the Pipers fundraiser">
+					<img class="hero-photo" src="images/fulls/fundraiser.jpg" alt="Pipers in green doublets and Gordon kilts posing on a running track at night, with the Shoreline Stadium scoreboard behind them" />
+					<div class="hero-inner" data-campaign-bar>
+						<div class="track" aria-hidden="true" hidden><div class="fill"></div></div>
+						<p class="label" role="status">Raising money for three new sets of pipes</p>
+						<a href="fundraiser.html" class="hero-btn">Donate</a>
+					</div>
+				</section>
+
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Fundraiser tile.
-						     The onclick is deliberate: the poptrox lightbox in main.js
-						     intercepts every anchor inside #main and tries to open it
-						     as an image. The inline handler runs before the plugin's,
-						     navigates straight to the fundraiser page, and its
-						     return false stops the lightbox from firing.
-						     Photo needed: pipers in their PC t-shirts (per the
-						     fundraising email). Drop it in as
-						     images/thumbs/fundraiser.jpg (a wide crop ~ 600x360
-						     or larger works best as a thumbnail). -->
+						<!-- Fundraiser tile RETIRED (issue #9): the hero above now makes the ask
+						     (photo, progress, Donate button), so a second fundraiser tile would
+						     repeat it. Code kept for next year's campaign: uncomment it to bring
+						     it back. Its onclick is deliberate, because the poptrox lightbox in
+						     main.js intercepts every anchor inside #main and tries to open it
+						     as an image; the inline handler navigates straight to the page. -->
+						<!--
 						<article class="thumb">
 							<a href="fundraiser.html" class="image" onclick="window.location.href='fundraiser.html'; return false;"><img src="images/thumbs/fundraiser.jpg" alt="Pipers in green doublets and Gordon kilts posing on a running track at night, with the Shoreline Stadium scoreboard behind them" /></a>
 							<h2>Fundraiser: Pipes for the Pipers</h2>
 							<p>Our 2026-27 fundraiser: $6,000 for three new sets of pipes. Click to donate.</p>
 						</article>
-
-                    <!--When the fundraiser is over, comment out the preceding tile but retain the code for future use. New tiles can be added for new events, announcements, etc. -->     
+						-->
                         
 						<article class="thumb">
 							<a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.jpg" alt="A row of pipers in green doublets and kilts marching down a street past a crowd of spectators in Ireland" /></a>
@@ -131,6 +140,8 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
            <script src="assets/js/nav.js"></script>
+			<script src="assets/js/campaign.js"></script>
+			<script src="assets/js/hero.js"></script>
 			<script src="assets/js/main.js"></script>
 
 	</body>

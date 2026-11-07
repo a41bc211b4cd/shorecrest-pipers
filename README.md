@@ -12,7 +12,7 @@ This is the website for the Shorecrest High School Pipers Club (Highland bagpipi
 
 It has four pages:
 
-- **Home** (`index.html`): a gallery of photo tiles. One tile links to the fundraiser.
+- **Home** (`index.html`): a photo hero with the fundraiser progress bar and a Donate button, then a gallery of photo tiles.
 - **Fundraiser** (`fundraiser.html`): the story of the current campaign, with a tartan thermometer showing how much has been raised.
 - **Events** (`events.html`): where to hear the pipers, with an "Add to calendar" file for each event.
 - **History** (`history.html`): a short history of piping at Shorecrest.
@@ -114,7 +114,7 @@ The tartan fill and the words "Raised so far: $... of $6,000" both update themse
 
 ### The fundraiser tile is different on purpose
 
-The fundraiser tile has an extra `onclick="window.location.href='fundraiser.html'; return false;"`. Please do not remove it. The pop-up photo viewer (the "lightbox") grabs every link in the gallery and tries to open it as a picture, so a normal link to a page would break. The `onclick` sends people straight to the page instead. If you ever make another tile that links to a page rather than a photo, copy the fundraiser tile and change the page name.
+The fundraiser tile is commented out now (the home page hero does its job), but its code is kept. If you bring it back, note it has an extra `onclick="window.location.href='fundraiser.html'; return false;"`. Please do not remove it. The pop-up photo viewer (the "lightbox") grabs every link in the gallery and tries to open it as a picture, so a normal link to a page would break. The `onclick` sends people straight to the page instead. If you ever make another tile that links to a page rather than a photo, copy the fundraiser tile and change the page name.
 
 ### Retire a tile
 
@@ -239,7 +239,7 @@ When the fundraiser is over, switch the site from asking to thanking. Do these t
 1. **Thermometer:** in `assets/js/campaign.js`, set `raised` to the final total. In `fundraiser.html`, change the heading and the opening paragraph to a thank-you, for example "We did it, thank you!" Change the "Raised so far..." wording (set by the `textContent` line in the script at the bottom) to a past-tense line such as "Raised: $X". Change the note under the thermometer ("We update the tartan as donations come in. Watch it climb.") to something like "Thank you for helping us reach the goal." If the goal was not quite met, keep the thank-you honest and warm instead of saying "we did it".
 2. **Donate buttons:** there are two. Remove or comment out the "Donate online" button and the notes about cash and checks on the fundraiser page. Then remove the gold Donate pill from the header: delete the `navHtml += ... class="icon solid fa-heart donate"` line in `assets/js/nav.js` (marked "issue #3") and the "Donate button" block in `assets/css/pipers.css`. Leave the accessibility block at the end of that file alone. Finally search every file for the word `Donate` in case something else was added.
    Also take down or replace any printed signs and QR codes in `print/` that still ask for donations.
-3. **Home page tile:** comment out the fundraiser tile in `index.html`, as described under "Retire a tile". The file already has a note there reminding you to keep the code for next time. The Events page can stay.
+3. **Home page hero:** in `index.html`, the hero above the gallery asks for donations. Replace its progress line and button with a thank-you (or remove the `<section class="hero">`, the "Home page hero" block in `pipers.css` and the `campaign.js`/`hero.js` script tags). The fundraiser tile is already retired. The Events page can stay.
 4. **Thank-you note:** add a short thank-you where the donation appeal used to be. Thank the donors, and the people who played and helped. Only include facts you know to be true (what the money bought, when). Keep the names and amounts of individual donors off the site unless they said yes.
 5. Check the preview, then publish.
 

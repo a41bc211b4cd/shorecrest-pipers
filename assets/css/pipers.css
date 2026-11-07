@@ -380,6 +380,85 @@
 
 	}
 
+/* ==== Home page hero (issue #9) ====
+   A photo, a thin progress bar, one muted line and a Donate button, in
+   that order, at every width. No text over the photo. Sits between
+   #header and #main in index.html, never inside #main (the lightbox would
+   hijack the button). Figures come from assets/js/campaign.js via
+   assets/js/hero.js. To remove after the campaign, delete this block, the
+   hero section in index.html and the campaign.js and hero.js script tags. */
+
+	.hero {
+		margin-top: 1em; /* the phone header is slightly taller than the body padding */
+	}
+
+	.hero .hero-photo {
+		aspect-ratio: 4 / 3;
+		display: block;
+		max-height: 60vh;
+		object-fit: cover;
+		object-position: 50% 35%;
+		width: 100%;
+	}
+
+	.hero .hero-inner {
+		margin: 0 auto;
+		max-width: 30em;
+		padding: 2.5em 1.5em 3em 1.5em;
+		text-align: center;
+	}
+
+	.hero .track {
+		background: rgba(255, 255, 255, 0.14);
+		border-radius: 2px;
+		height: 4px;
+		overflow: hidden;
+	}
+
+	.hero .track[hidden] {
+		display: none;
+	}
+
+	.hero .fill {
+		background: #c9a227;
+		height: 100%;
+		width: 0;
+	}
+
+	.hero .label {
+		color: #9e9e9f;
+		font-size: 0.8em;
+		margin: 1em 0 2em 0;
+	}
+
+	.hero .hero-btn {
+		background: #c9a227;
+		border: 0;
+		border-radius: 4px;
+		color: #1a1a1a !important;
+		display: inline-block;
+		font-size: 0.85em;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		line-height: 3.2em;
+		min-width: 12em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+		.hero .hero-btn:hover {
+			background: #dcb73a;
+			color: #1a1a1a !important;
+		}
+
+	@media screen and (min-width: 737px) {
+
+		.hero {
+			margin-top: 0;
+		}
+
+	}
+
 /* ==========================================================================
    Card tint and snappier animations (epic #1).
    Inserted above the accessibility block, which must stay last.
