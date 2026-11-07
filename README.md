@@ -188,7 +188,7 @@ This rewrites the QR code and the printed web address on both signs. Always scan
 
 The full web address is written in several places, so when it changes do a find-and-replace of `https://a41bc211b4cd.github.io/shorecrest-pipers/` with the new one in:
 
-- the `og:` and `twitter:` meta tags near the top of `index.html`, `history.html` and `fundraiser.html` (`events.html` has no share tags yet, so there is nothing to change there until someone adds them)
+- the `og:` and `twitter:` meta tags near the top of `index.html`, `history.html`, `fundraiser.html` and `events.html`
 - `sitemap.xml`
 - `robots.txt` (the `Sitemap:` line)
 
