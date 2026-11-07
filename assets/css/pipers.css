@@ -389,6 +389,7 @@
    its nav with flex-wrap, so no other change is needed. */
 
 	#history,
+	#events,
 	#fundraiser {
 		overflow-wrap: break-word;
 	}
@@ -401,6 +402,30 @@
 		.button {
 			padding-left: 1.5em;
 			padding-right: 1.5em;
+		}
+
+	}
+
+/* Phone header nav: wrap generically inside the viewport, however many
+   items there are (a Donate pill may be added), with no per-item widths.
+   Checked in headless Chrome at 335px and 390px frames (320px and 375px
+   plus a classic scrollbar): the nav wraps onto a second row and nothing
+   is clipped or scrolls sideways. */
+
+	@media screen and (max-width: 736px) {
+
+		#header nav {
+			max-width: 100%;
+		}
+
+		#header nav > ul {
+			flex-wrap: wrap;
+			max-width: 100%;
+		}
+
+		#header nav > ul > li {
+			flex: 0 1 auto;
+			max-width: 100%;
 		}
 
 	}
