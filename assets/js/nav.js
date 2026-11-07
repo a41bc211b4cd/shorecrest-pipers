@@ -72,3 +72,53 @@
 	document.getElementById('footer').innerHTML = footerHtml;
 
 })();
+
+// ---- Keyboard access (issue #13) ----
+// main.js strips href from the header links (and the About toggle) to
+// attach click handlers, which leaves them unfocusable and inoperable
+// from the keyboard. Once main.js has run (DOMContentLoaded), restore
+// focus, button/link semantics and Enter/Space activation, and move
+// focus into the footer panel when it opens and back out when it closes.
+document.addEventListener('DOMContentLoaded', function() {
+
+	var header = document.getElementById('header');
+	var footer = document.getElementById('footer');
+	var toggle = null;
+
+	if (!header) return;
+
+	var els = header.querySelectorAll('a:not([href])');
+	for (var i = 0; i < els.length; i++) {
+		(function(el) {
+			var isAbout = (el.textContent.replace(/\s+/g, '') == 'About');
+			el.setAttribute('tabindex', '0');
+			el.setAttribute('role', isAbout ? 'button' : 'link');
+			if (isAbout) {
+				toggle = el;
+				el.setAttribute('aria-controls', 'footer');
+				el.setAttribute('aria-expanded', 'false');
+			}
+			el.addEventListener('keydown', function(e) {
+				if (e.key == 'Enter' || (isAbout && e.key == ' ')) {
+					e.preventDefault();
+					el.click();
+				}
+			});
+		})(els[i]);
+	}
+
+	if (footer && toggle && window.MutationObserver) {
+		footer.setAttribute('tabindex', '-1');
+		footer.setAttribute('aria-label', 'About the Pipers Club');
+		new MutationObserver(function() {
+			var open = footer.classList.contains('active');
+			toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+			if (open) {
+				footer.focus();
+			} else if (footer.contains(document.activeElement)) {
+				toggle.focus();
+			}
+		}).observe(footer, { attributes: true, attributeFilter: ['class'] });
+	}
+
+});
