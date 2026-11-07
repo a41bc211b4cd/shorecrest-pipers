@@ -507,6 +507,12 @@
 		position: relative;
 	}
 
+	/* Phone header is a little taller than the body's top padding; small
+	   gap so the photo never tucks under it. */
+	.hero {
+		margin-top: 1em;
+	}
+
 	.hero .hero-photo {
 		aspect-ratio: 4 / 3;
 		display: block;
@@ -599,6 +605,7 @@
 	@media screen and (min-width: 737px) {
 
 		.hero {
+			margin-top: 0;
 			align-items: flex-end;
 			display: flex;
 			height: clamp(440px, calc(100vh - 4em), 760px);
