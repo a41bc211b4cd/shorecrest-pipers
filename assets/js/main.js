@@ -34,7 +34,7 @@
 				$window.on('load', function() {
 					window.setTimeout(function() {
 						$body.removeClass('is-preload');
-					}, 100);
+					}, 65); // faster: was 100
 				});
 
 			// Prevent transitions/animations on resize.
@@ -250,14 +250,14 @@
 					return s;
 
 				},
-				fadeSpeed: 300,
+				fadeSpeed: 200, // faster: was 300
 				onPopupClose: function() { $body.removeClass('modal-active'); },
 				onPopupOpen: function() { $body.addClass('modal-active'); },
 				overlayOpacity: 0,
 				popupCloserText: '',
 				popupHeight: 150,
 				popupLoaderText: '',
-				popupSpeed: 300,
+				popupSpeed: 200, // faster: was 300
 				popupWidth: 150,
 				selector: '.thumb > a.image',
 				usePopupCaption: true,
