@@ -97,45 +97,53 @@
 									     the growing column. Clipped to the interior. -->
 									<g clip-path="url(#tube-clip)">
 										<ellipse cx="140" cy="334" rx="36" ry="24" fill="url(#gordon)" />
-										<!-- #fill-level: resized by the meter script. -->
-										<rect id="fill-level" x="120" y="324" width="40" height="0" fill="url(#gordon)" />
+										<!-- #fill-level: resized by the meter script. Its
+										     bottom edge sits at y=324, inside the bulb, so
+										     there's no gap where the tube meets the oval;
+										     its top edge marks the amount raised. Without
+										     the script it shows $0 (top at y=310). -->
+										<rect id="fill-level" x="120" y="310" width="40" height="14" fill="url(#gordon)" />
 									</g>
 
 									<!-- Tick marks and amounts, right side. Evenly
-								     spaced: $0 at y=310, $6,000 at y=60. -->
+									     spaced: $0 at y=310, $6,000 at y=60, so each
+									     $1,000 step is 250 / 6 = 41.7 units. If GOAL
+									     changes, move these ticks to match. -->
 									<g fill="#707071" font-size="11" font-family="Helvetica, Arial, sans-serif">
 										<line x1="164" y1="60" x2="172" y2="60" stroke="#707071" stroke-width="2" />
 										<text x="177" y="64">$6,000</text>
-										<line x1="164" y1="110" x2="172" y2="110" stroke="#707071" stroke-width="2" />
-										<text x="177" y="114">$5,000</text>
-										<line x1="164" y1="160" x2="172" y2="160" stroke="#705051" stroke-width="2" />
-										<text x="177" y="164">$4,000</text>
-										<line x1="164" y1="210" x2="172" y2="210" stroke="#707071" stroke-width="2" />
-										<text x="177" y="214">$3,000</text>
-										<line x1="164" y1="260" x2="172" y2="260" stroke="#707071" stroke-width="2" />
-										<text x="177" y="264">$2,000</text>
+										<line x1="164" y1="101.7" x2="172" y2="101.7" stroke="#707071" stroke-width="2" />
+										<text x="177" y="105.7">$5,000</text>
+										<line x1="164" y1="143.3" x2="172" y2="143.3" stroke="#707071" stroke-width="2" />
+										<text x="177" y="147.3">$4,000</text>
+										<line x1="164" y1="185" x2="172" y2="185" stroke="#707071" stroke-width="2" />
+										<text x="177" y="189">$3,000</text>
+										<line x1="164" y1="226.7" x2="172" y2="226.7" stroke="#707071" stroke-width="2" />
+										<text x="177" y="230.7">$2,000</text>
+										<line x1="164" y1="268.3" x2="172" y2="268.3" stroke="#707071" stroke-width="2" />
+										<text x="177" y="272.3">$1,000</text>
 										<line x1="164" y1="310" x2="172" y2="310" stroke="#707071" stroke-width="2" />
 										<text x="177" y="314">$0</text>
 									</g>
 								</svg>
-								<p class="meter-amount" id="meter-amount">Raised so far: $1000 of $6,000</p>
+								<p class="meter-amount" id="meter-amount">Raised so far: $1,010 of $6,000</p>
 								<p class="meter-note">We update the tartan as donations come in. Watch it climb.</p>
 							</div>
 
 							<p class="cta">
 								<!-- TODO: replace href="#" with the club's Zeffy page URL with QR code -->
 								<a href="#" class="button primary large">Donate online</a><br />
-								<span class="cta-note">Donations are processed by Shorecrest Boosters Club securely through Zeffy. Prefer to give in person? Find us at events in Shoreline all December. We accept cash and checks made out to "Shorecrest Boosters Club" (write "for Pipers Club" on the endorsement panel).</span>
+								<span class="cta-note">Donations are processed by Shorecrest Boosters Club securely through Zeffy. Prefer to give in person? Find us at events in Shoreline all December. We accept cash and checks made out to "Shorecrest Boosters Club" (write "for Pipers Club" on the memo line).</span>
 							</p>
 
 							<section>
 								<h2>Thank-you gifts</h2>
-								<p>For donations over $50.00 you will receive a thank-you designed by our students: a set of Pipers Club holiday cards, and for Donations over $100 cards and an official Pipers Club T-shirt.</p>
+								<p>As a thank-you, our students have designed gifts for our supporters. Give <span class="gold">$50 or more</span> and you'll receive a set of Pipers Club holiday cards. Give <span class="gold">$100 or more</span> and you'll receive the cards and an official Pipers Club T-shirt.</p>
 							</section>
 
 							<section>
 								<h2>Where you can hear us this holiday season</h2>
-								<p>You can donate off QR codes and the Shorecrest Boosters Club at various events this winter: <strong>Spree Trees, December 4–6</strong>. Our pipers will be in their club T-shirts with a donation sign at the ready. Will add a complete schedule soon, but find us—weather and finals permitting—at holiday happenings around Shoreline through the month, and listen for Christmas carols arranged for the pipes: the club is learning them right now! There may be lights on the drone cords. There will almost certainly be Santa hats.</p>
+								<p>Come and hear us at events around Shoreline this winter, starting with <strong>Spree Trees, December 4–6</strong>. Our pipers will be in their club T-shirts with a donation sign at the ready: scan the QR code to give online, or give cash or a check to the Shorecrest Boosters Club in person. We'll post the full schedule soon, but find us—weather and finals permitting—at holiday happenings around Shoreline through the month, and listen for Christmas carols arranged for the pipes: the club is learning them right now! There may be lights on the drone cords. There will almost certainly be Santa hats.</p>
 							</section>
 
 							<section>
@@ -166,18 +174,20 @@
 				// To update the page after donations: change RAISED to the
 				// current total, and the mercury and text adjust themselves.
 				//
-				// Geometry (SVG coordinates): the mercury column spans from
-				// the $0 mark (y=310) up to the $6,000 mark (y=60).
+				// Geometry (SVG coordinates): the top of the mercury moves
+				// from the $0 tick (y=310) up to the $6,000 tick (y=60).
+				// The column's bottom edge stays at y=324, inside the bulb.
 				var GOAL = 6000;
 				var RAISED = 1010;
 
 				(function() {
 					var pct = Math.max(0, Math.min(RAISED / GOAL, 1));
-					var bottom = 324; // full-column height inside the tube
-					var top = 60;     // $6,000 line
-					var h = (bottom - top) * pct;
-					document.getElementById('fill-level').setAttribute('y', bottom - h);
-					document.getElementById('fill-level').setAttribute('height', h);
+					var zeroY = 310; // $0 tick
+					var goalY = 60;  // $6,000 tick
+					var baseY = 324; // column bottom, hidden inside the bulb
+					var levelY = zeroY - (zeroY - goalY) * pct;
+					document.getElementById('fill-level').setAttribute('y', levelY);
+					document.getElementById('fill-level').setAttribute('height', baseY - levelY);
 					document.getElementById('meter-amount').textContent =
 						'Raised so far: $' + RAISED.toLocaleString() + ' of $' + GOAL.toLocaleString();
 				})();

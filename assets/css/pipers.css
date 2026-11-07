@@ -177,12 +177,12 @@
 			padding: 0.85em 1em;
 		}
 
-/* Donation-goal bagpipe meter (fundraiser.html).
+/* Donation-goal tartan thermometer (fundraiser.html).
 
-   The bagpipe is inline SVG in the page. #fill-level is a rectangle
-   clipped to the bag's ellipse; the page script sets its y/height
-   from the RAISED figure. Bag geometry: ellipse cx=215 cy=195
-   rx=95 ry=72, so top=123 and bottom=267 in SVG coordinates. */
+   The thermometer is inline SVG in the page. #fill-level is a
+   rectangle clipped to the tube and bulb; the page script sets its
+   y/height from the RAISED figure. Scale: $0 at y=310, $6,000 at
+   y=60 in SVG coordinates. */
 
 	.meter {
 		background: #34363b;
