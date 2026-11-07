@@ -35,6 +35,10 @@
 			'" class="icon solid ' + links[i].icon + '">' +
 			links[i].label + '</a></li>';
 	}
+	// Campaign Donate button (issue #3). To remove it after the campaign:
+	// delete this line and the "Donate button" block at the end of
+	// assets/css/pipers.css.
+	navHtml += '<li><a href="fundraiser.html" class="icon solid fa-heart donate">Donate</a></li>';
 	navHtml += '</ul>';
 
 	document.getElementById('main-nav').innerHTML = navHtml;
