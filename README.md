@@ -70,20 +70,22 @@ If you double-click the HTML files instead, some things may not look right. Use 
 
 This is the job you will do most often.
 
-1. Open `fundraiser.html`.
-2. Scroll to the very bottom, to the `<script>` near the end of the file. Find these two lines:
+1. Open `assets/js/campaign.js`. It is a short file, and the last line looks like this:
 
    ```
-   var GOAL = 6000;
-   var RAISED = 1010;
+   window.PIPERS_CAMPAIGN = { goal: 6000, raised: 1010 };
    ```
 
-3. Change the number after `RAISED` to the new total, with no `$` and no comma. For example, `var RAISED = 2350;`.
-4. Save, check it at http://localhost:8123/fundraiser.html, then publish (see below).
+2. Change the number after `raised:` to the new total, with no `$` and no comma. For example, `raised: 2350`.
+3. Save, check it at http://localhost:8123/fundraiser.html, then publish (see below).
 
-The tartan fill and the words "Raised so far: $... of $6,000" both update themselves from that one number.
+You can also do this without any tools: open `assets/js/campaign.js` on GitHub, click the pencil icon, change the number and commit. The live site updates about a minute later.
 
-`GOAL` sets the scale of the thermometer. If you ever change it, the dollar labels beside the thermometer ($1,000, $2,000 and so on) do not move on their own. They are drawn by hand as tick marks in the SVG in the same file, so you would need to edit their labels and move their positions to match. Most of the time, leave `GOAL` alone.
+The tartan fill and the words "Raised so far: $... of $6,000" both update themselves from that one number. Any other page that shows the progress (such as a home-page banner) reads the same file, so this is the only place to change it.
+
+`fundraiser.html` also keeps a backup copy of the two numbers near the bottom of its script (`var CAMPAIGN = window.PIPERS_CAMPAIGN || { goal: 6000, raised: 1010 };`). It is only used if `campaign.js` fails to load. Changing it does **not** update the site, but it is good to keep it roughly in step.
+
+`goal` sets the scale of the thermometer. If you ever change it, the dollar labels beside the thermometer ($1,000, $2,000 and so on) do not move on their own. They are drawn by hand as tick marks in the SVG in `fundraiser.html`, so you would need to edit their labels and move their positions to match. Most of the time, leave `goal` alone.
 
 ## Add a photo tile to the home page
 
@@ -234,7 +236,7 @@ If you get stuck or something looks wrong, do not panic. Nothing on GitHub is tr
 
 When the fundraiser is over, switch the site from asking to thanking. Do these together:
 
-1. **Thermometer:** in `fundraiser.html`, set `RAISED` to the final total. Change the heading and the opening paragraph to a thank-you, for example "We did it, thank you!" Change the "Raised so far..." wording (set by the `textContent` line in the script at the bottom) to a past-tense line such as "Raised: $X". Change the note under the thermometer ("We update the tartan as donations come in. Watch it climb.") to something like "Thank you for helping us reach the goal." If the goal was not quite met, keep the thank-you honest and warm instead of saying "we did it".
+1. **Thermometer:** in `assets/js/campaign.js`, set `raised` to the final total. In `fundraiser.html`, change the heading and the opening paragraph to a thank-you, for example "We did it, thank you!" Change the "Raised so far..." wording (set by the `textContent` line in the script at the bottom) to a past-tense line such as "Raised: $X". Change the note under the thermometer ("We update the tartan as donations come in. Watch it climb.") to something like "Thank you for helping us reach the goal." If the goal was not quite met, keep the thank-you honest and warm instead of saying "we did it".
 2. **Donate buttons:** there are two. Remove or comment out the "Donate online" button and the notes about cash and checks on the fundraiser page. Then remove the gold Donate pill from the header: delete the `navHtml += ... class="icon solid fa-heart donate"` line in `assets/js/nav.js` (marked "issue #3") and the "Donate button" block in `assets/css/pipers.css`. Leave the accessibility block at the end of that file alone. Finally search every file for the word `Donate` in case something else was added.
    Also take down or replace any printed signs and QR codes in `print/` that still ask for donations.
 3. **Home page tile:** comment out the fundraiser tile in `index.html`, as described under "Retire a tile". The file already has a note there reminding you to keep the code for next time. The Events page can stay.
