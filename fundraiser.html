@@ -64,8 +64,9 @@
                                Update the current earnings by updating the variable RAISED at the bottom in scripts.
 
 							     Shape: squared-off tube with rounded top corners (no
-							     dome), flowing into a wide oval reservoir at the
-							     bottom. Bulb is drawn as an ellipse: rx=36, ry=24. -->
+							     dome), flowing into a wide oval bulb at the bottom,
+							     drawn as one continuous glass outline (bulb ellipse
+							     rx=36, ry=24). -->
 							<div class="meter">
 								<svg viewBox="0 0 300 400" role="img" aria-labelledby="meter-title meter-desc">
 									<title id="meter-title">Donation thermometer</title>
@@ -90,33 +91,40 @@
 											<rect y="32" width="64" height="2" fill="#101418" fill-opacity="0.7" />
 										</pattern>
 
-										<!-- Mercury region: tube interior plus oval
-										     reservoir, so the growing rectangle never
-										     spills past the glass. Tube: x=120..160,
-										     top y=40 with 10-unit corner rounding.
-										     Oval: cx=140 cy=334 rx=36 ry=24. -->
+										<!-- Glass outline: ONE path, the centre line of the 3px
+										     stroke. Tube x=120..160 with 10-unit rounded top
+										     corners (top y=40) running down to y=314.04, where
+										     its walls meet the bulb ellipse (cx=140 cy=334
+										     rx=36 ry=24), then one big arc round the bulb. -->
+										<path id="glass-outline" d="M120 314.04 V50 A10 10 0 0 1 130 40 H150 A10 10 0 0 1 160 50 V314.04 A36 24 0 1 1 120 314.04 Z" />
+
+										<!-- Mercury region: the same shape inset 5.5 units
+										     (1.5 for half the stroke + a 4-unit gap), so the
+										     tartan never touches the glass outline. Tube
+										     x=125.5..154.5, top y=45.5, corner radius 4.5;
+										     bulb rx=30.5 ry=18.5; walls meet it at y=317.72. -->
 										<clipPath id="tube-clip">
-											<rect x="120" y="40" width="40" height="296" rx="10" ry="10" />
-											<ellipse cx="140" cy="334" rx="36" ry="24" />
+											<path d="M125.5 317.72 V50 A4.5 4.5 0 0 1 130 45.5 H150 A4.5 4.5 0 0 1 154.5 50 V317.72 A30.5 18.5 0 1 1 125.5 317.72 Z" />
 										</clipPath>
 									</defs>
 
-									<!-- Glass: squared tube (rounded top corners only)
-									     flowing into the oval reservoir. -->
-									<rect x="120" y="40" width="40" height="296" rx="10" ry="10" fill="#34363b" stroke="#707071" stroke-width="3" />
-									<ellipse cx="140" cy="334" rx="36" ry="24" fill="#34363b" stroke="#707071" stroke-width="3" />
+									<!-- Layer 1: dark glass interior. -->
+									<use href="#glass-outline" fill="#34363b" />
 
-									<!-- Mercury: tartan-filled oval (always full) plus
-									     the growing column. Clipped to the interior. -->
+									<!-- Layer 2: mercury, clipped to the inset shape. -->
 									<g clip-path="url(#tube-clip)">
 										<ellipse cx="140" cy="334" rx="36" ry="24" fill="url(#gordon)" />
 										<!-- #fill-level: resized by the meter script. Its
 										     bottom edge sits at y=324, inside the bulb, so
-										     there's no gap where the tube meets the oval;
+										     there's no gap where the tube meets the bulb;
 										     its top edge marks the amount raised. Without
 										     the script it shows $0 (top at y=310). -->
 										<rect id="fill-level" x="120" y="310" width="40" height="14" fill="url(#gordon)" />
 									</g>
+
+									<!-- Layer 3: glass outline, stroke only, drawn last so
+									     it is always fully visible over the mercury. -->
+									<use href="#glass-outline" fill="none" stroke="#707071" stroke-width="3" stroke-linejoin="round" />
 
 									<!-- Tick marks and amounts, right side. Evenly
 									     spaced: $0 at y=310, $6,000 at y=60, so each
