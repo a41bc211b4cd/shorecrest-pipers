@@ -17,7 +17,7 @@
 	// ---- Header navigation ----
 
 	var links = [
-		{ href: '#',               icon: 'fa-calendar',    label: 'Calendar' },
+		{ href: 'events.html',    icon: 'fa-calendar',    label: 'Events' },
 		{ href: 'fundraiser.html', icon: 'fa-heart',       label: 'Fundraiser' },
 		{ href: 'history.html',    icon: 'fa-book',        label: 'History' },
 		{ href: '#footer',         icon: 'fa-info-circle', label: 'About' }

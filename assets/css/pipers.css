@@ -110,17 +110,20 @@
 /* Reading-page layout, shared by history.html and fundraiser.html. */
 
 	#history,
+	#events,
 	#fundraiser {
 		padding: 3em 2em 3em 2em;
 	}
 
 	#history .history-content,
+	#events .history-content,
 	#fundraiser .history-content {
 		margin: 0 auto;
 		max-width: 46em;
 	}
 
 		#history h1,
+		#events h1,
 		#fundraiser h1 {
 			border-bottom: solid 1px #36383c;
 			font-size: 1.75em;
@@ -129,17 +132,20 @@
 		}
 
 		#history h2,
+		#events h2,
 		#fundraiser h2 {
 			color: #c9a227;
 			margin-top: 2.25em;
 		}
 
 		#history p,
+		#events p,
 		#fundraiser p {
 			color: #a0a0a1;
 		}
 
 		#history hr,
+		#events hr,
 		#fundraiser hr {
 			border-bottom: solid 1px #36383c;
 			margin: 3em 0;
@@ -151,6 +157,7 @@
 	@media screen and (max-width: 736px) {
 
 		#history,
+		#events,
 		#fundraiser {
 			padding: 4.5em 1.25em 3em 1.25em;
 		}
@@ -271,3 +278,37 @@
 	.gold {
 		color: #c9a227;
 	}
+
+/* Events page (events.html): upcoming-event list. */
+
+	.event-list {
+		list-style: none;
+		margin: 0 0 2em 0;
+		padding: 0;
+	}
+
+		.event-list li {
+			border-left: solid 3px #c9a227;
+			margin: 0 0 1.5em 0;
+			padding: 0.25em 0 0.25em 1.25em;
+		}
+
+		.event-list .event-date {
+			color: #c9a227;
+			font-size: 0.8em;
+			font-weight: 600;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		.event-list .event-name {
+			color: #ffffff;
+			display: block;
+			font-size: 1.25em;
+			margin: 0.15em 0 0.35em 0;
+		}
+
+		.event-list .event-details {
+			color: #a0a0a1;
+			margin: 0 0 0.5em 0;
+		}
