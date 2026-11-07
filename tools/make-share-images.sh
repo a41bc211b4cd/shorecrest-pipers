@@ -1,8 +1,8 @@
 #!/bin/sh
 # Regenerates the 1200x630 social share images in images/share/.
 # Run from anywhere: sh tools/make-share-images.sh
-# The source photos are stand-ins; replace images/fulls/fundraiser.jpg and
-# images/fulls/01.jpg (issue #6) and re-run. Requires ImageMagick (`magick`).
+# Both pictures are built from images/fulls/fundraiser.jpg, the current club
+# at Shoreline Stadium; replace that photo and re-run. Requires ImageMagick (`magick`).
 set -e
 cd "$(dirname "$0")/.."
 mkdir -p images/share
@@ -18,5 +18,5 @@ make() { # source output title subtitle
 
 make images/fulls/fundraiser.jpg images/share/fundraiser.jpg \
   "Pipes for the Pipers" "Goal: \$6,000 for 3 new sets of Highland pipes"
-make images/fulls/01.jpg images/share/site.jpg \
+make images/fulls/fundraiser.jpg images/share/site.jpg \
   "Shorecrest Pipers Club" "Highland bagpiping and drumming in Shoreline, WA"
