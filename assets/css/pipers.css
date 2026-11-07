@@ -365,3 +365,161 @@
 			}
 
 	}
+
+/* ==========================================================================
+   Accessibility and mobile pass (issue #13). Appended last so it wins.
+   Hues are unchanged; only lightness is nudged to reach WCAG AA.
+   Contrast figures are against the real backgrounds (page #242629,
+   panels/inputs #34363b, header #1f2224).
+   ========================================================================== */
+
+/* Grey #707071 was 2.44:1 on the #34363b panels. #9e9e9f is 4.52:1.
+   (#a0a0a1 body text is 5.81:1 on the page and 4.63:1 on panels: fine.) */
+
+	.history-photo figcaption,
+	.meter .meter-note {
+		color: #9e9e9f;
+	}
+
+	.meter svg text {
+		fill: #9e9e9f;
+	}
+
+	::-webkit-input-placeholder {
+		color: #9e9e9f !important;
+	}
+
+	:-moz-placeholder {
+		color: #9e9e9f !important;
+	}
+
+	::-moz-placeholder {
+		color: #9e9e9f !important;
+	}
+
+	:-ms-input-placeholder {
+		color: #9e9e9f !important;
+	}
+
+	::placeholder {
+		color: #9e9e9f !important;
+	}
+
+/* Footer copyright #505051 was 1.88:1 on the panel. #8c8c8d is 4.52:1. */
+
+	#footer .copyright {
+		color: #8c8c8d;
+	}
+
+/* White text on the green #4f9e69 was 3.27:1 (primary buttons, active nav
+   item). #3a7d51 (already used for the pressed state) is 4.96:1. Hover
+   goes darker, not lighter, so white text stays above 4.5:1. */
+
+	input[type="submit"].primary,
+	input[type="reset"].primary,
+	input[type="button"].primary,
+	button.primary,
+	.button.primary,
+	#header nav > ul > li a.active {
+		background-color: #3a7d51;
+	}
+
+		input[type="submit"].primary:hover,
+		input[type="reset"].primary:hover,
+		input[type="button"].primary:hover,
+		button.primary:hover,
+		.button.primary:hover {
+			background-color: #33704a;
+		}
+
+/* Keyboard focus. Gold #c9a227 is 6.27:1 on the page, 5.0:1 on panels and
+   6.61:1 on the header, so it is visible everywhere. Negative offsets keep
+   the ring inside the header links and gallery tiles, which would clip it. */
+
+	a:focus-visible,
+	button:focus-visible,
+	input:focus-visible,
+	select:focus-visible,
+	textarea:focus-visible,
+	[tabindex]:focus-visible {
+		outline: 3px solid #c9a227;
+		outline-offset: 2px;
+	}
+
+	#header a:focus-visible,
+	#main .thumb > a.image:focus-visible {
+		outline-offset: -3px;
+	}
+
+	input[type="text"]:focus-visible,
+	textarea:focus-visible {
+		outline-offset: 0;
+	}
+
+	/* The footer panel takes focus from script when it opens; no ring on
+	   the whole panel. */
+
+	#footer:focus {
+		outline: 0;
+	}
+
+/* Footer panel: it slides off-screen when closed but its links and form
+   fields were still reachable with Tab. Hide it from the keyboard and
+   screen readers until it is open (hide after the slide-out finishes). */
+
+	.panel {
+		visibility: hidden;
+		transition: transform 0.5s ease, visibility 0s linear 0.5s;
+	}
+
+	.panel.active {
+		visibility: visible;
+		transition: transform 0.5s ease, visibility 0s linear 0s;
+	}
+
+/* Nothing should scroll sideways at 320px: let long words and URLs wrap.
+   Checked by reading the CSS: .meter svg is width:100% / max-width:420px,
+   .history-photo img is width:100%, and the phone header (<=736px) wraps
+   its nav with flex-wrap, so no other change is needed. */
+
+	#history,
+	#events,
+	#fundraiser {
+		overflow-wrap: break-word;
+	}
+
+	/* The large Donate button (nowrap, 2.5em side padding) is about as wide
+	   as a 320px screen's content box; trim its side padding on phones. */
+
+	@media screen and (max-width: 480px) {
+
+		.button {
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+		}
+
+	}
+
+/* Phone header nav: wrap generically inside the viewport, however many
+   items there are (a Donate pill may be added), with no per-item widths.
+   Checked in headless Chrome at 335px and 390px frames (320px and 375px
+   plus a classic scrollbar): the nav wraps onto a second row and nothing
+   is clipped or scrolls sideways. */
+
+	@media screen and (max-width: 736px) {
+
+		#header nav {
+			max-width: 100%;
+		}
+
+		#header nav > ul {
+			flex-wrap: wrap;
+			max-width: 100%;
+		}
+
+		#header nav > ul > li {
+			flex: 0 1 auto;
+			max-width: 100%;
+		}
+
+	}

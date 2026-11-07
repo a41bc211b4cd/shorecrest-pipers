@@ -82,3 +82,55 @@
 	document.getElementById('footer').innerHTML = footerHtml;
 
 })();
+
+// ---- Keyboard access (issue #13) ----
+// main.js strips href from the header links (and the About toggle) to
+// attach its own click handlers, which makes them unfocusable and breaks
+// middle-click / open-in-new-tab. This runs BEFORE main.js, so the hrefs
+// are saved in data-href now; once main.js has run (DOMContentLoaded)
+// they are put back. main.js's click handlers call preventDefault, so a
+// restored href is safe. Also keeps the About toggle's aria state and
+// moves focus into the footer panel on open and back to the toggle on
+// close.
+(function() {
+
+	var saved = document.querySelectorAll('#header a[href]');
+	for (var i = 0; i < saved.length; i++) {
+		saved[i].setAttribute('data-href', saved[i].getAttribute('href'));
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+
+		var footer = document.getElementById('footer');
+		var toggle = null;
+		var links = document.querySelectorAll('#header a[data-href]');
+
+		for (var j = 0; j < links.length; j++) {
+			var a = links[j];
+			if (!a.hasAttribute('href')) {
+				a.setAttribute('href', a.getAttribute('data-href'));
+			}
+			if (a.getAttribute('data-href') == '#footer') {
+				toggle = a;
+				a.setAttribute('aria-controls', 'footer');
+				a.setAttribute('aria-expanded', 'false');
+			}
+		}
+
+		if (footer && toggle && window.MutationObserver) {
+			footer.setAttribute('tabindex', '-1');
+			footer.setAttribute('aria-label', 'About the Pipers Club');
+			new MutationObserver(function() {
+				var open = footer.classList.contains('active');
+				toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+				if (open) {
+					footer.focus();
+				} else if (footer.contains(document.activeElement)) {
+					toggle.focus();
+				}
+			}).observe(footer, { attributes: true, attributeFilter: ['class'] });
+		}
+
+	});
+
+})();
