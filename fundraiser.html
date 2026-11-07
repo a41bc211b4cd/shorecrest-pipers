@@ -190,6 +190,7 @@
            <script src="assets/js/nav.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<script src="assets/js/campaign.js"></script>
 			<script>
 				// Tartan thermometer.
 				// To update the page after donations: change RAISED to the
@@ -198,8 +199,12 @@
 				// Geometry (SVG coordinates): the top of the mercury moves
 				// from the $0 tick (y=310) up to the $6,000 tick (y=60).
 				// The column's bottom edge stays at y=324, inside the bulb.
-				var GOAL = 6000;
-				var RAISED = 1010;
+				// GOAL and RAISED come from assets/js/campaign.js (the one place
+				// to update the total). The fallback values keep the page working
+				// if that file fails to load; keep them in step with campaign.js.
+				var CAMPAIGN = window.PIPERS_CAMPAIGN || { goal: 6000, raised: 1010 };
+				var GOAL = CAMPAIGN.goal;
+				var RAISED = CAMPAIGN.raised;
 
 				(function() {
 					var pct = Math.max(0, Math.min(RAISED / GOAL, 1));
