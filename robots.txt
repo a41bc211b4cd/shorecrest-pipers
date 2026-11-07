@@ -86,3 +86,6 @@ Allow: /
 
 User-agent: DuckDuckBot
 Allow: /
+
+# --- Sitemap ---
+Sitemap: https://a41bc211b4cd.github.io/shorecrest-pipers/sitemap.xml
