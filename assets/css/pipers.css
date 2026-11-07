@@ -271,3 +271,53 @@
 	.gold {
 		color: #c9a227;
 	}
+/* ==== Donate button (campaign; issue #3) ====
+   Gold pill in the header nav, added by nav.js. To remove after the
+   campaign, delete this block and the Donate line in assets/js/nav.js. */
+
+	#header nav > ul > li a.donate {
+		background-color: #c9a227;
+		border-radius: 999px;
+		color: #242629;
+		font-weight: 600;
+		line-height: 2.2em;
+		margin-left: 0.5em;
+		padding: 0 1.2em;
+		vertical-align: middle;
+	}
+
+		#header nav > ul > li a.donate:before {
+			color: #242629;
+			float: none;
+			margin: 0 0.5em 0 0;
+		}
+
+		#header nav > ul > li a.donate:hover {
+			background-color: #dcb73a;
+			color: #242629 !important;
+		}
+
+	/* Phone: nav wraps; keep the pill's own padding and a gap before it. */
+	@media screen and (max-width: 736px) {
+
+		#header nav > ul > li a.donate {
+			line-height: 2em;
+			margin-left: 0;
+			padding: 0 0.9em;
+		}
+
+	}
+
+	/* Tablet: five items share the row, so tighten the pill. */
+	@media screen and (min-width: 737px) and (max-width: 960px) {
+
+		#header nav > ul > li a.donate {
+			margin-left: 0.25em;
+			padding: 0 0.9em;
+		}
+
+			#header nav > ul > li a.donate:before {
+				margin-right: 0.35em;
+			}
+
+	}
