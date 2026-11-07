@@ -451,10 +451,54 @@
 			color: #1a1a1a !important;
 		}
 
+	/* Tablet and desktop: the same three controls sit on the photo, low on
+	   the left, under an even dark tint. The tint is the only overlay; the
+	   photo stays a short band so it does not eat the screen. */
+
 	@media screen and (min-width: 737px) {
 
 		.hero {
+			height: clamp(320px, 48vh, 520px);
 			margin-top: 0;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.hero .hero-photo {
+			aspect-ratio: auto;
+			height: 100%;
+			max-height: none;
+			object-position: 50% 38%;
+		}
+
+		.hero:before {
+			background: rgba(10, 14, 18, 0.6);
+			content: '';
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		.hero .hero-inner {
+			bottom: 0;
+			left: 0;
+			margin: 0;
+			max-width: 21em;
+			padding: 0 0 2.75em 3em;
+			position: absolute;
+			text-align: left;
+			width: 100%;
+		}
+
+		.hero .label {
+			color: #e2e2e3;
+			margin-bottom: 1.5em;
+		}
+
+		.hero .hero-btn {
+			min-width: 10em;
 		}
 
 	}
