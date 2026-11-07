@@ -645,6 +645,174 @@
 	}
 
 /* ==========================================================================
+   Card tint and snappier animations (epic #1).
+   Inserted above the accessibility block, which must stay last.
+
+   1. TINT. main.css already puts a bottom gradient on #main .thumb:after
+      (35% at the bottom, fading out by 35% of the height). That was too
+      light for bright photos, so this block replaces that same layer
+      instead of adding a second one. Darkest ink is the template's own
+      rgb(10,17,25). The scrim is measured in rem, not % of tile height, so
+      it stays tied to the caption on tall phone tiles and short desktop
+      ones. The :after sits above the photo and below the h2.
+
+      Contrast: the caption is white. The worst case is a pure white photo
+      (luminance 1.0) behind it. White text reaches 4.5:1 when the
+      background luminance is at most 0.183, which is a sRGB grey of about
+      117. rgb(10,17,25) over white at alpha a gives about 255-240a, so
+      a must be at least 0.58. Across the caption zone (bottom 7rem, enough
+      for a three-line title) the two layers combine to at least
+      0.74, which is about 8.2:1 on a pure white photo, and 0.65 on hover
+      (about 5.8:1). Real photos are darker than white, so real contrast
+      is higher still.
+
+   2. SPEED. Every template timing is cut by about 35% (x0.65). Original
+      values are in each comment. Rules that exist in the accessibility
+      block (the footer panel slide) are matched with higher specificity,
+      because that block is last and would otherwise win.
+   ========================================================================== */
+
+/* --- 1. Tint ------------------------------------------------------------ */
+
+	#main .thumb:after {
+		background-image:
+			linear-gradient(to top, rgba(10,17,25,0.86) 0, rgba(10,17,25,0.72) 7rem, rgba(10,17,25,0.25) 12rem, rgba(10,17,25,0) 16rem),
+			linear-gradient(rgba(10,17,25,0.08), rgba(10,17,25,0.08));
+		opacity: 1;
+		transition: opacity 0.26s ease-in-out; /* hover glow: 0.4s x 0.65 */
+	}
+
+	/* Hover and keyboard focus: ease the tint back so the photo lights up.
+	   At 0.86 the caption zone is still at least 0.65 alpha over pure
+	   white (about 5.8:1 worst case), and the text-shadow helps more. */
+
+	#main .thumb:hover:after,
+	#main .thumb:has(> a.image:focus-visible):after {
+		opacity: 0.86;
+	}
+
+	#main .thumb > h2 {
+		text-shadow: 0 1px 3px rgba(0,0,0,0.55), 0 0 12px rgba(0,0,0,0.35);
+	}
+
+/* --- 2. Speed ----------------------------------------------------------- */
+
+	/* Tile reveal fade: 1.25s -> 0.8s. */
+	#main .thumb {
+		transition: opacity 0.8s ease-in-out;
+	}
+
+	/* Stagger. Was 0.65s for tile 1, plus 0.15s per tile (0.65s ... 2.3s).
+	   Now 0.42s plus 0.1s per tile (0.42s ... 1.52s). The template's
+	   per-breakpoint "all the rest" delays (1.175s to 2.525s) are replaced
+	   by this same stagger for every tile. */
+	#main .thumb:nth-child(1)  { transition-delay: 0.42s; }
+	#main .thumb:nth-child(2)  { transition-delay: 0.52s; }
+	#main .thumb:nth-child(3)  { transition-delay: 0.62s; }
+	#main .thumb:nth-child(4)  { transition-delay: 0.72s; }
+	#main .thumb:nth-child(5)  { transition-delay: 0.82s; }
+	#main .thumb:nth-child(6)  { transition-delay: 0.92s; }
+	#main .thumb:nth-child(7)  { transition-delay: 1.02s; }
+	#main .thumb:nth-child(8)  { transition-delay: 1.12s; }
+	#main .thumb:nth-child(9)  { transition-delay: 1.22s; }
+	#main .thumb:nth-child(10) { transition-delay: 1.32s; }
+	#main .thumb:nth-child(11) { transition-delay: 1.42s; }
+	#main .thumb:nth-child(12) { transition-delay: 1.52s; }
+	#main .thumb:nth-child(n+13) { transition-delay: 1.52s; }
+
+	/* The delay above would also hold back the hover glow; the tint layer
+	   is a pseudo-element with its own transition, so it is not affected. */
+
+	/* Header slide-in: 1s -> 0.65s. */
+	#header {
+		transition: transform 0.65s ease;
+	}
+
+	/* Header nav item colour: 0.5s -> 0.32s. */
+	#header nav > ul > li a {
+		transition: background-color 0.32s ease;
+	}
+
+	/* Preload spinner: fade 1s -> 0.65s, delay 0.5s -> 0.33s. */
+	body.is-preload #wrapper:before {
+		transition: opacity 0.65s ease-out !important;
+		transition-delay: 0.33s !important;
+	}
+
+	/* Spinner move-out: top 0.75s -> 0.5s, opacity/visibility 0.35s -> 0.23s. */
+	#wrapper:before {
+		transition: top 0.5s ease-in-out, opacity 0.23s ease-out, visibility 0.23s;
+	}
+
+	/* Blur and dim when the footer panel is open: 0.5s -> 0.32s. */
+	#wrapper {
+		transition: filter 0.32s ease;
+	}
+
+	#main {
+		transition: filter 0.32s ease;
+	}
+
+	#wrapper:after,
+	#main:after {
+		transition: opacity 0.32s ease, visibility 0.32s;
+	}
+
+	/* Footer "About" panel slide: 0.5s -> 0.32s. "body .panel" is more
+	   specific than the plain ".panel" rules in the accessibility block
+	   below, so these win even though that block comes later. The
+	   visibility delay (0.5s -> 0.32s) matches the slide. */
+	body .panel {
+		transition: transform 0.32s ease, visibility 0s linear 0.32s;
+	}
+
+	body .panel.active {
+		transition: transform 0.32s ease, visibility 0s linear 0s;
+	}
+
+	/* Quick colour and opacity fades: 0.2s -> 0.13s (links, buttons,
+	   panel closer, lightbox arrows and closer, lightbox edge shade). */
+	a {
+		transition: color 0.13s ease-in-out, border-bottom-color 0.13s ease-in-out;
+	}
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		transition: background-color 0.13s ease-in-out, box-shadow 0.13s ease-in-out, color 0.13s ease-in-out;
+	}
+
+	.panel > .closer,
+	.poptrox-popup:before,
+	.poptrox-popup .closer,
+	.poptrox-popup .nav-previous,
+	.poptrox-popup .nav-next {
+		transition: opacity 0.13s ease-in-out;
+	}
+
+/* --- Reduced motion: near-instant. The spinner is turned off rather than
+   shortened because it loops. !important is needed to beat the template's
+   own !important preload rules and the accessibility block below. The
+   lightbox speeds set in main.js are jQuery animations and are not
+   touched by this block. ------------------------------------------------ */
+
+	@media (prefers-reduced-motion: reduce) {
+
+		*,
+		*:before,
+		*:after,
+		body.is-preload #wrapper:before {
+			transition-duration: 0.01ms !important;
+			transition-delay: 0s !important;
+			animation: none !important;
+			scroll-behavior: auto !important;
+		}
+
+	}
+
+/* ==========================================================================
    Accessibility and mobile pass (issue #13). Appended last so it wins.
    Hues are unchanged; only lightness is nudged to reach WCAG AA.
    Contrast figures are against the real backgrounds (page #242629,
