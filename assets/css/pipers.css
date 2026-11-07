@@ -110,17 +110,20 @@
 /* Reading-page layout, shared by history.html and fundraiser.html. */
 
 	#history,
+	#events,
 	#fundraiser {
 		padding: 3em 2em 3em 2em;
 	}
 
 	#history .history-content,
+	#events .history-content,
 	#fundraiser .history-content {
 		margin: 0 auto;
 		max-width: 46em;
 	}
 
 		#history h1,
+		#events h1,
 		#fundraiser h1 {
 			border-bottom: solid 1px #36383c;
 			font-size: 1.75em;
@@ -129,17 +132,20 @@
 		}
 
 		#history h2,
+		#events h2,
 		#fundraiser h2 {
 			color: #c9a227;
 			margin-top: 2.25em;
 		}
 
 		#history p,
+		#events p,
 		#fundraiser p {
 			color: #a0a0a1;
 		}
 
 		#history hr,
+		#events hr,
 		#fundraiser hr {
 			border-bottom: solid 1px #36383c;
 			margin: 3em 0;
@@ -151,6 +157,7 @@
 	@media screen and (max-width: 736px) {
 
 		#history,
+		#events,
 		#fundraiser {
 			padding: 4.5em 1.25em 3em 1.25em;
 		}
@@ -270,4 +277,372 @@
 
 	.gold {
 		color: #c9a227;
+	}
+
+/* Events page (events.html): upcoming-event list. */
+
+	.event-list {
+		list-style: none;
+		margin: 0 0 2em 0;
+		padding: 0;
+	}
+
+		.event-list li {
+			border-left: solid 3px #c9a227;
+			margin: 0 0 1.5em 0;
+			padding: 0.25em 0 0.25em 1.25em;
+		}
+
+		.event-list .event-date {
+			color: #c9a227;
+			font-size: 0.8em;
+			font-weight: 600;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		.event-list .event-name {
+			color: #ffffff;
+			display: block;
+			font-size: 1.25em;
+			margin: 0.15em 0 0.35em 0;
+		}
+
+		.event-list .event-details {
+			color: #a0a0a1;
+			margin: 0 0 0.5em 0;
+		}
+
+/* ==== Donate button (campaign; issue #3) ====
+   Gold pill in the header nav, added by nav.js. To remove after the
+   campaign, delete this block and the Donate line in assets/js/nav.js. */
+
+	#header nav > ul > li a.donate {
+		background-color: #c9a227;
+		border-radius: 999px;
+		color: #242629;
+		font-weight: 600;
+		line-height: 2.2em;
+		margin-left: 0.5em;
+		margin-right: 1.5em; /* matches the header's left padding */
+		padding: 0 1.2em;
+		vertical-align: middle;
+	}
+
+		#header nav > ul > li a.donate:before {
+			color: #242629;
+			float: none;
+			margin: 0 0.5em 0 0;
+		}
+
+		#header nav > ul > li a.donate:hover {
+			background-color: #dcb73a;
+			color: #242629 !important;
+		}
+
+	/* Phone: nav wraps; keep the pill's own padding and a gap before it. */
+	@media screen and (max-width: 736px) {
+
+		#header nav > ul > li a.donate {
+			line-height: 2em;
+			margin-left: 0;
+			margin-right: 0;
+			padding: 0 0.9em;
+		}
+
+	}
+
+	/* Tablet: five items share the row, so tighten the pill. */
+	@media screen and (min-width: 737px) and (max-width: 960px) {
+
+		#header nav > ul > li a.donate {
+			margin-left: 0.25em;
+			padding: 0 0.9em;
+		}
+
+			#header nav > ul > li a.donate:before {
+				margin-right: 0.35em;
+			}
+
+	}
+
+/* ==========================================================================
+   Shorecrest heritage identity (issue #6).
+   Restrained touches that tie the site to the school: the piper mascot as
+   an emblem beside the site title, a Gordon tartan rule under the header,
+   gold section accents on the history page, and "yearbook" matting for the
+   vintage images. Colours come from the Gordon tartan used in the
+   fundraiser thermometer (green #1d3a22, navy #20304f, gold #c9a227).
+   Contrast (see the accessibility block below): gold #c9a227 is 6.27:1 on
+   the page; dark caption text #3b3326 on the cream mat #ece3cb is 9.7:1.
+   Keep this block ABOVE the accessibility block, which must stay last.
+   ========================================================================== */
+
+/* Piper emblem: a round badge (images/emblem.png, the mascot flattened onto
+   cream with a gold ring so its black coat does not vanish on the dark
+   header). Drawn with CSS so no markup or nav.js change is needed. Purely
+   decorative, so it is not announced by screen readers. */
+
+	#header h1 a:before {
+		background: url("../../images/emblem.png") center / contain no-repeat;
+		content: '';
+		display: inline-block;
+		height: 2.1em;
+		margin: -0.3em 0.55em 0 0;
+		vertical-align: middle;
+		width: 2.1em;
+	}
+
+/* Gordon tartan rule along the bottom edge of the header: the same green,
+   navy and gold sett as the fundraiser thermometer, as a tiny inline SVG
+   tile. The tile is shown from y=18 so the gold crossing bars appear. */
+
+	#header:after {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' fill='%231d3a22'/%3E%3Crect x='24' width='16' height='64' fill='%2320304f' fill-opacity='.85'/%3E%3Crect x='20' width='4' height='64' fill='%23c9a227' fill-opacity='.9'/%3E%3Crect x='40' width='4' height='64' fill='%23c9a227' fill-opacity='.9'/%3E%3Crect y='24' width='64' height='16' fill='%2320304f' fill-opacity='.85'/%3E%3Crect y='20' width='64' height='4' fill='%23c9a227' fill-opacity='.9'/%3E%3Crect y='40' width='64' height='4' fill='%23c9a227' fill-opacity='.9'/%3E%3Crect x='32' width='2' height='64' fill='%23101418' fill-opacity='.7'/%3E%3Crect y='32' width='64' height='2' fill='%23101418' fill-opacity='.7'/%3E%3C/svg%3E");
+		background-position: 0 -18px;
+		content: '';
+		display: block;
+		height: 8px;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	/* On phones the header sits at the top of the screen, so the rule goes
+	   on its lower edge; on larger screens the header is a bar at the
+	   bottom and the rule sits on its upper edge. */
+
+	@media screen and (max-width: 736px) {
+
+		#header:after {
+			bottom: 0;
+			top: auto;
+		}
+
+	}
+
+/* Gold accents on the history page: a short gold rule under each section
+   heading, and a gold rule under the page title. */
+
+	#history h1 {
+		border-bottom-color: #c9a227;
+	}
+
+	#history h2:after {
+		background: #c9a227;
+		content: '';
+		display: block;
+		height: 2px;
+		margin-top: 0.6em;
+		width: 2.5em;
+	}
+
+/* Yearbook-style framing for the vintage images: a cream mat with a thin
+   gold keyline, serif caption underneath. Add class "heritage" to a
+   .history-photo figure. */
+
+	.history-photo.heritage {
+		background: #ece3cb;
+		border: solid 1px #c9a227;
+		box-shadow: inset 0 0 0 5px #ece3cb, inset 0 0 0 6px rgba(201, 162, 39, 0.55);
+		padding: 1.1em 1.1em 0 1.1em;
+	}
+
+		.history-photo.heritage img {
+			border: solid 1px rgba(59, 51, 38, 0.35);
+		}
+
+		.history-photo.heritage figcaption {
+			color: #3b3326;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: 0.85em;
+			font-style: italic;
+			padding: 0.8em 0.25em 1em 0.25em;
+			text-align: center;
+		}
+
+	/* Two yearbook pages side by side; they stack on narrow screens. */
+
+	.heritage-pages {
+		align-items: flex-start;
+		display: flex;
+		gap: 1em;
+	}
+
+		.heritage-pages img {
+			flex: 1 1 0;
+			min-width: 0;
+			width: 50%;
+		}
+
+	@media screen and (max-width: 736px) {
+
+		.heritage-pages {
+			flex-direction: column;
+		}
+
+			.heritage-pages img {
+				width: 100%;
+			}
+
+	}
+
+/* ==========================================================================
+   Accessibility and mobile pass (issue #13). Appended last so it wins.
+   Hues are unchanged; only lightness is nudged to reach WCAG AA.
+   Contrast figures are against the real backgrounds (page #242629,
+   panels/inputs #34363b, header #1f2224).
+   ========================================================================== */
+
+/* Grey #707071 was 2.44:1 on the #34363b panels. #9e9e9f is 4.52:1.
+   (#a0a0a1 body text is 5.81:1 on the page and 4.63:1 on panels: fine.) */
+
+	.history-photo figcaption,
+	.meter .meter-note {
+		color: #9e9e9f;
+	}
+
+	.meter svg text {
+		fill: #9e9e9f;
+	}
+
+	::-webkit-input-placeholder {
+		color: #9e9e9f !important;
+	}
+
+	:-moz-placeholder {
+		color: #9e9e9f !important;
+	}
+
+	::-moz-placeholder {
+		color: #9e9e9f !important;
+	}
+
+	:-ms-input-placeholder {
+		color: #9e9e9f !important;
+	}
+
+	::placeholder {
+		color: #9e9e9f !important;
+	}
+
+/* Footer copyright #505051 was 1.88:1 on the panel. #8c8c8d is 4.52:1. */
+
+	#footer .copyright {
+		color: #8c8c8d;
+	}
+
+/* White text on the green #4f9e69 was 3.27:1 (primary buttons, active nav
+   item). #3a7d51 (already used for the pressed state) is 4.96:1. Hover
+   goes darker, not lighter, so white text stays above 4.5:1. */
+
+	input[type="submit"].primary,
+	input[type="reset"].primary,
+	input[type="button"].primary,
+	button.primary,
+	.button.primary,
+	#header nav > ul > li a.active {
+		background-color: #3a7d51;
+	}
+
+		input[type="submit"].primary:hover,
+		input[type="reset"].primary:hover,
+		input[type="button"].primary:hover,
+		button.primary:hover,
+		.button.primary:hover {
+			background-color: #33704a;
+		}
+
+/* Keyboard focus. Gold #c9a227 is 6.27:1 on the page, 5.0:1 on panels and
+   6.61:1 on the header, so it is visible everywhere. Negative offsets keep
+   the ring inside the header links and gallery tiles, which would clip it. */
+
+	a:focus-visible,
+	button:focus-visible,
+	input:focus-visible,
+	select:focus-visible,
+	textarea:focus-visible,
+	[tabindex]:focus-visible {
+		outline: 3px solid #c9a227;
+		outline-offset: 2px;
+	}
+
+	#header a:focus-visible,
+	#main .thumb > a.image:focus-visible {
+		outline-offset: -3px;
+	}
+
+	input[type="text"]:focus-visible,
+	textarea:focus-visible {
+		outline-offset: 0;
+	}
+
+	/* The footer panel takes focus from script when it opens; no ring on
+	   the whole panel. */
+
+	#footer:focus {
+		outline: 0;
+	}
+
+/* Footer panel: it slides off-screen when closed but its links and form
+   fields were still reachable with Tab. Hide it from the keyboard and
+   screen readers until it is open (hide after the slide-out finishes). */
+
+	.panel {
+		visibility: hidden;
+		transition: transform 0.5s ease, visibility 0s linear 0.5s;
+	}
+
+	.panel.active {
+		visibility: visible;
+		transition: transform 0.5s ease, visibility 0s linear 0s;
+	}
+
+/* Nothing should scroll sideways at 320px: let long words and URLs wrap.
+   Checked by reading the CSS: .meter svg is width:100% / max-width:420px,
+   .history-photo img is width:100%, and the phone header (<=736px) wraps
+   its nav with flex-wrap, so no other change is needed. */
+
+	#history,
+	#events,
+	#fundraiser {
+		overflow-wrap: break-word;
+	}
+
+	/* The large Donate button (nowrap, 2.5em side padding) is about as wide
+	   as a 320px screen's content box; trim its side padding on phones. */
+
+	@media screen and (max-width: 480px) {
+
+		.button {
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+		}
+
+	}
+
+/* Phone header nav: wrap generically inside the viewport, however many
+   items there are (a Donate pill may be added), with no per-item widths.
+   Checked in headless Chrome at 335px and 390px frames (320px and 375px
+   plus a classic scrollbar): the nav wraps onto a second row and nothing
+   is clipped or scrolls sideways. */
+
+	@media screen and (max-width: 736px) {
+
+		#header nav {
+			max-width: 100%;
+		}
+
+		#header nav > ul {
+			flex-wrap: wrap;
+			max-width: 100%;
+		}
+
+		#header nav > ul > li {
+			flex: 0 1 auto;
+			max-width: 100%;
+		}
+
 	}
