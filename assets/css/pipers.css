@@ -277,6 +277,7 @@
 
 		.event-list li {
 			margin: 0 0 1.5em 0;
+			padding-left: 0;
 		}
 
 		.event-list .event-date {
