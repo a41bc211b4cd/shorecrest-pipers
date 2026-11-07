@@ -282,6 +282,7 @@
 		font-weight: 600;
 		line-height: 2.2em;
 		margin-left: 0.5em;
+		margin-right: 1.5em; /* matches the header's left padding */
 		padding: 0 1.2em;
 		vertical-align: middle;
 	}
@@ -303,6 +304,7 @@
 		#header nav > ul > li a.donate {
 			line-height: 2em;
 			margin-left: 0;
+			margin-right: 0;
 			padding: 0 0.9em;
 		}
 
