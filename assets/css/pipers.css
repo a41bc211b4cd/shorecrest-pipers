@@ -125,10 +125,8 @@
 		#history h1,
 		#events h1,
 		#fundraiser h1 {
-			border-bottom: solid 1px #36383c;
 			font-size: 1.75em;
 			margin-bottom: 1.5em;
-			padding-bottom: 0.75em;
 		}
 
 		#history h2,
@@ -142,13 +140,6 @@
 		#events p,
 		#fundraiser p {
 			color: #a0a0a1;
-		}
-
-		#history hr,
-		#events hr,
-		#fundraiser hr {
-			border-bottom: solid 1px #36383c;
-			margin: 3em 0;
 		}
 
 	/* On phones the fixed header sits at the top, so keep extra top
@@ -167,8 +158,6 @@
 /* Photo figures (history.html). */
 
 	.history-photo {
-		background: #34363b;
-		border: solid 1px #36383c;
 		margin: 2em 0;
 		max-width: 100%;
 	}
@@ -193,7 +182,6 @@
 
 	.meter {
 		background: #34363b;
-		border: solid 1px #36383c;
 		margin: 2em 0;
 		padding: 1.5em 1em;
 		text-align: center;
@@ -288,9 +276,7 @@
 	}
 
 		.event-list li {
-			border-left: solid 3px #c9a227;
 			margin: 0 0 1.5em 0;
-			padding: 0.25em 0 0.25em 1.25em;
 		}
 
 		.event-list .event-date {
@@ -366,112 +352,16 @@
 
 	}
 
-/* ==========================================================================
-   Shorecrest heritage identity (issue #6).
-   Restrained touches that tie the site to the school: the piper mascot as
-   an emblem beside the site title, a Gordon tartan rule under the header,
-   gold section accents on the history page, and "yearbook" matting for the
-   vintage images. Colours come from the Gordon tartan used in the
-   fundraiser thermometer (green #1d3a22, navy #20304f, gold #c9a227).
-   Contrast (see the accessibility block below): gold #c9a227 is 6.27:1 on
-   the page; dark caption text #3b3326 on the cream mat #ece3cb is 9.7:1.
-   Keep this block ABOVE the accessibility block, which must stay last.
-   ========================================================================== */
+/* Two yearbook pages side by side on the history page; they stack on
+   narrow screens. */
 
-/* Piper emblem: a round badge (images/emblem.png, the mascot flattened onto
-   cream with a gold ring so its black coat does not vanish on the dark
-   header). Drawn with CSS so no markup or nav.js change is needed. Purely
-   decorative, so it is not announced by screen readers. */
-
-	#header h1 a:before {
-		background: url("../../images/emblem.png") center / contain no-repeat;
-		content: '';
-		display: inline-block;
-		height: 2.1em;
-		margin: -0.3em 0.55em 0 0;
-		vertical-align: middle;
-		width: 2.1em;
-	}
-
-/* Gordon tartan rule along the bottom edge of the header: the same green,
-   navy and gold sett as the fundraiser thermometer, as a tiny inline SVG
-   tile. The tile is shown from y=18 so the gold crossing bars appear. */
-
-	#header:after {
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' fill='%231d3a22'/%3E%3Crect x='24' width='16' height='64' fill='%2320304f' fill-opacity='.85'/%3E%3Crect x='20' width='4' height='64' fill='%23c9a227' fill-opacity='.9'/%3E%3Crect x='40' width='4' height='64' fill='%23c9a227' fill-opacity='.9'/%3E%3Crect y='24' width='64' height='16' fill='%2320304f' fill-opacity='.85'/%3E%3Crect y='20' width='64' height='4' fill='%23c9a227' fill-opacity='.9'/%3E%3Crect y='40' width='64' height='4' fill='%23c9a227' fill-opacity='.9'/%3E%3Crect x='32' width='2' height='64' fill='%23101418' fill-opacity='.7'/%3E%3Crect y='32' width='64' height='2' fill='%23101418' fill-opacity='.7'/%3E%3C/svg%3E");
-		background-position: 0 -18px;
-		content: '';
-		display: block;
-		height: 8px;
-		left: 0;
-		pointer-events: none;
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
-
-	/* On phones the header sits at the top of the screen, so the rule goes
-	   on its lower edge; on larger screens the header is a bar at the
-	   bottom and the rule sits on its upper edge. */
-
-	@media screen and (max-width: 736px) {
-
-		#header:after {
-			bottom: 0;
-			top: auto;
-		}
-
-	}
-
-/* Gold accents on the history page: a short gold rule under each section
-   heading, and a gold rule under the page title. */
-
-	#history h1 {
-		border-bottom-color: #c9a227;
-	}
-
-	#history h2:after {
-		background: #c9a227;
-		content: '';
-		display: block;
-		height: 2px;
-		margin-top: 0.6em;
-		width: 2.5em;
-	}
-
-/* Yearbook-style framing for the vintage images: a cream mat with a thin
-   gold keyline, serif caption underneath. Add class "heritage" to a
-   .history-photo figure. */
-
-	.history-photo.heritage {
-		background: #ece3cb;
-		border: solid 1px #c9a227;
-		box-shadow: inset 0 0 0 5px #ece3cb, inset 0 0 0 6px rgba(201, 162, 39, 0.55);
-		padding: 1.1em 1.1em 0 1.1em;
-	}
-
-		.history-photo.heritage img {
-			border: solid 1px rgba(59, 51, 38, 0.35);
-		}
-
-		.history-photo.heritage figcaption {
-			color: #3b3326;
-			font-family: Georgia, "Times New Roman", serif;
-			font-size: 0.85em;
-			font-style: italic;
-			padding: 0.8em 0.25em 1em 0.25em;
-			text-align: center;
-		}
-
-	/* Two yearbook pages side by side; they stack on narrow screens. */
-
-	.heritage-pages {
+	.history-pair {
 		align-items: flex-start;
 		display: flex;
 		gap: 1em;
 	}
 
-		.heritage-pages img {
+		.history-pair img {
 			flex: 1 1 0;
 			min-width: 0;
 			width: 50%;
@@ -479,11 +369,11 @@
 
 	@media screen and (max-width: 736px) {
 
-		.heritage-pages {
+		.history-pair {
 			flex-direction: column;
 		}
 
-			.heritage-pages img {
+			.history-pair img {
 				width: 100%;
 			}
 
