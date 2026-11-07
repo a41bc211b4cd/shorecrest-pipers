@@ -36,8 +36,7 @@ It is plain HTML, CSS and a little JavaScript. There is nothing to install and n
 | `sitemap.xml` | List of pages for search engines | When pages or the web address change |
 | `assets/js/nav.js` | Writes the menu (including the gold Donate button), the footer and the tab icons on every page | Yes |
 | `assets/css/pipers.css` | Our colours and layout changes | Yes |
-| `assets/css/main.css` | The template's own compiled CSS | **No**, leave it alone |
-| `assets/sass/` | The template's source styles, kept for reference | No |
+| `assets/css/main.css` | The template's own CSS (we don't use its Sass sources, so they aren't in this repo) | **No**, leave it alone |
 | `assets/js/main.js` and the other template `.js` files | The template's scripts (the photo pop-up, the footer panel) | No |
 | `images/thumbs/` | Small gallery pictures shown on the home page | Yes, to add photos |
 | `images/fulls/` | Large versions shown when someone clicks a tile | Yes, to add photos |
