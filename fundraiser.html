@@ -12,25 +12,12 @@
 	- Update RAISED in the meter script at the bottom of this page in the scripts section (one number) and
 	  the thermometer fills itself.
 -->
-<html lang="en">
+<html>
 	<head>
 		<title>Pipes for the Pipers | Shorecrest Pipers Club</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="The Shorecrest Pipers Club is raising $6,000 to buy 3 new sets of Highland bagpipes. Donate online via Zeffy, or find us around Shoreline this holiday season!" />
-		<meta property="og:title" content="Pipes for the Pipers | Shorecrest Pipers Club" />
-		<meta property="og:description" content="The Shorecrest Pipers Club is raising $6,000 to buy 3 new sets of Highland bagpipes. Donate online via Zeffy, or find us around Shoreline this holiday season!" />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://a41bc211b4cd.github.io/shorecrest-pipers/fundraiser.html" />
-		<meta property="og:image" content="https://a41bc211b4cd.github.io/shorecrest-pipers/images/share/fundraiser.jpg" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="Shorecrest pipers in green doublets and Gordon kilts on a running track at night, with the Shoreline Stadium scoreboard behind them" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Pipes for the Pipers | Shorecrest Pipers Club" />
-		<meta name="twitter:description" content="The Shorecrest Pipers Club is raising $6,000 to buy 3 new sets of Highland bagpipes. Donate online via Zeffy, or find us around Shoreline this holiday season!" />
-		<meta name="twitter:image" content="https://a41bc211b4cd.github.io/shorecrest-pipers/images/share/fundraiser.jpg" />
-		<meta name="twitter:image:alt" content="Shorecrest pipers in green doublets and Gordon kilts on a running track at night, with the Shoreline Stadium scoreboard behind them" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/pipers.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -64,9 +51,9 @@
                                Update the current earnings by updating the variable RAISED at the bottom in scripts.
 
 							     Shape: squared-off tube with rounded top corners (no
-							     dome), flowing into a wide oval bulb at the bottom,
-							     drawn as one continuous glass outline (bulb ellipse
-							     rx=36, ry=24). -->
+							     dome), flowing into a wide oval bulb at the bottom.
+							     The glass is one outline, so the tube and bulb join
+							     cleanly and the tartan never covers the edge. -->
 							<div class="meter">
 								<svg viewBox="0 0 300 400" role="img" aria-labelledby="meter-title meter-desc">
 									<title id="meter-title">Donation thermometer</title>
@@ -91,45 +78,37 @@
 											<rect y="32" width="64" height="2" fill="#101418" fill-opacity="0.7" />
 										</pattern>
 
-										<!-- Glass outline: ONE path, the centre line of the 3px
-										     stroke. Tube x=120..160 with 10-unit rounded top
-										     corners (top y=40) running down to y=314.04, where
-										     its walls meet the bulb ellipse (cx=140 cy=334
-										     rx=36 ry=24), then one big arc round the bulb. -->
+										<!-- Glass outline: one shape for the tube and bulb together.
+										     Tube: x=120 to 160, rounded top corners at y=40.
+										     Bulb: oval at cx=140 cy=334, rx=36 ry=24. -->
 										<path id="glass-outline" d="M120 314.04 V50 A10 10 0 0 1 130 40 H150 A10 10 0 0 1 160 50 V314.04 A36 24 0 1 1 120 314.04 Z" />
 
-										<!-- Mercury region: the same shape inset 5.5 units
-										     (1.5 for half the stroke + a 4-unit gap), so the
-										     tartan never touches the glass outline. Tube
-										     x=125.5..154.5, top y=45.5, corner radius 4.5;
-										     bulb rx=30.5 ry=18.5; walls meet it at y=317.72. -->
+										<!-- Mercury area: the same shape, shrunk a little so the
+										     tartan leaves a small gap inside the glass. -->
 										<clipPath id="tube-clip">
 											<path d="M125.5 317.72 V50 A4.5 4.5 0 0 1 130 45.5 H150 A4.5 4.5 0 0 1 154.5 50 V317.72 A30.5 18.5 0 1 1 125.5 317.72 Z" />
 										</clipPath>
 									</defs>
 
-									<!-- Layer 1: dark glass interior. -->
+									<!-- Drawn in three layers, back to front. -->
+
+									<!-- 1. Dark inside of the glass (reuses the outline above). -->
 									<use href="#glass-outline" fill="#34363b" />
 
-									<!-- Layer 2: mercury, clipped to the inset shape. -->
+									<!-- 2. Mercury: tartan-filled bulb (always full) plus
+									     the growing column, kept inside the mercury area. -->
 									<g clip-path="url(#tube-clip)">
 										<ellipse cx="140" cy="334" rx="36" ry="24" fill="url(#gordon)" />
-										<!-- #fill-level: resized by the meter script. Its
-										     bottom edge sits at y=324, inside the bulb, so
-										     there's no gap where the tube meets the bulb;
-										     its top edge marks the amount raised. Without
-										     the script it shows $0 (top at y=310). -->
+										<!-- #fill-level: the script moves its top edge to the
+										     amount raised. Its bottom stays hidden in the bulb. -->
 										<rect id="fill-level" x="120" y="310" width="40" height="14" fill="url(#gordon)" />
 									</g>
 
-									<!-- Layer 3: glass outline, stroke only, drawn last so
-									     it is always fully visible over the mercury. -->
+									<!-- 3. Glass edge, drawn last so it sits on top. -->
 									<use href="#glass-outline" fill="none" stroke="#707071" stroke-width="3" stroke-linejoin="round" />
 
-									<!-- Tick marks and amounts, right side. Evenly
-									     spaced: $0 at y=310, $6,000 at y=60, so each
-									     $1,000 step is 250 / 6 = 41.7 units. If GOAL
-									     changes, move these ticks to match. -->
+									<!-- Tick marks and amounts, right side. $0 is at y=310
+									     and $6,000 at y=60, so each $1,000 is 41.7 apart. -->
 									<g fill="#707071" font-size="11" font-family="Helvetica, Arial, sans-serif">
 										<line x1="164" y1="60" x2="172" y2="60" stroke="#707071" stroke-width="2" />
 										<text x="177" y="64">$6,000</text>
@@ -147,24 +126,24 @@
 										<text x="177" y="314">$0</text>
 									</g>
 								</svg>
-								<p class="meter-amount" id="meter-amount" role="status" aria-live="polite" aria-atomic="true">Raised so far: $1,010 of $6,000</p>
+								<p class="meter-amount" id="meter-amount">Raised so far: $1,010 of $6,000</p>
 								<p class="meter-note">We update the tartan as donations come in. Watch it climb.</p>
 							</div>
 
 							<p class="cta">
 								<!-- TODO: replace href="#" with the club's Zeffy page URL with QR code -->
 								<a href="#" class="button primary large">Donate online</a><br />
-								<span class="cta-note">Donations are processed by Shorecrest Boosters Club securely through Zeffy. Prefer to give in person? Find us at events in Shoreline all December. We accept cash and checks made out to "Shorecrest Boosters Club" (write "for Pipers Club" on the memo line).</span>
+								<span class="cta-note">Donations are processed by Shorecrest Boosters Club securely through Zeffy. Prefer to give in person? Find us at events in Shoreline all December. We accept cash and checks made out to "Shorecrest Boosters Club" (write "for Pipers Club" on the endorsement panel).</span>
 							</p>
 
 							<section>
 								<h2>Thank-you gifts</h2>
-								<p>As a thank-you, our students have designed gifts for our supporters. Give <span class="gold">$50 or more</span> and you'll receive a set of Pipers Club holiday cards. Give <span class="gold">$100 or more</span> and you'll receive the cards and an official Pipers Club T-shirt.</p>
+								<p>For donations over $50.00 you will receive a thank-you designed by our students: a set of Pipers Club holiday cards, and for Donations over $100 cards and an official Pipers Club T-shirt.</p>
 							</section>
 
 							<section>
 								<h2>Where you can hear us this holiday season</h2>
-								<p>Come and hear us at events around Shoreline this winter, starting with <strong>Spree Trees, December 4–6</strong>. Our pipers will be in their club T-shirts with a donation sign at the ready: scan the QR code to give online, or give cash or a check to the Shorecrest Boosters Club in person. We'll post the full schedule soon, but find us—weather and finals permitting—at holiday happenings around Shoreline through the month, and listen for Christmas carols arranged for the pipes: the club is learning them right now! There may be lights on the drone cords. There will almost certainly be Santa hats.</p>
+								<p>You can donate off QR codes and the Shorecrest Boosters Club at various events this winter: <strong>Spree Trees, December 4–6</strong>. Our pipers will be in their club T-shirts with a donation sign at the ready. Will add a complete schedule soon, but find us—weather and finals permitting—at holiday happenings around Shoreline through the month, and listen for Christmas carols arranged for the pipes: the club is learning them right now! There may be lights on the drone cords. There will almost certainly be Santa hats.</p>
 							</section>
 
 							<section>
@@ -190,28 +169,22 @@
            <script src="assets/js/nav.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<script src="assets/js/campaign.js"></script>
 			<script>
 				// Tartan thermometer.
 				// To update the page after donations: change RAISED to the
 				// current total, and the mercury and text adjust themselves.
 				//
-				// Geometry (SVG coordinates): the top of the mercury moves
-				// from the $0 tick (y=310) up to the $6,000 tick (y=60).
-				// The column's bottom edge stays at y=324, inside the bulb.
-				// GOAL and RAISED come from assets/js/campaign.js (the one place
-				// to update the total). The fallback values keep the page working
-				// if that file fails to load; keep them in step with campaign.js.
-				var CAMPAIGN = window.PIPERS_CAMPAIGN || { goal: 6000, raised: 1010 };
-				var GOAL = CAMPAIGN.goal;
-				var RAISED = CAMPAIGN.raised;
+				// Geometry (SVG coordinates): the mercury column spans from
+				// the $0 mark (y=310) up to the $6,000 mark (y=60).
+				var GOAL = 6000;
+				var RAISED = 1010;
 
 				(function() {
 					var pct = Math.max(0, Math.min(RAISED / GOAL, 1));
-					var zeroY = 310; // $0 tick
-					var goalY = 60;  // $6,000 tick
-					var baseY = 324; // column bottom, hidden inside the bulb
-					var levelY = zeroY - (zeroY - goalY) * pct;
+					var zeroY = 310; // $0 mark
+					var goalY = 60;  // $6,000 mark
+					var baseY = 324; // bottom of the mercury, hidden in the bulb
+					var levelY = zeroY - (zeroY - goalY) * pct; // top of the mercury
 					document.getElementById('fill-level').setAttribute('y', levelY);
 					document.getElementById('fill-level').setAttribute('height', baseY - levelY);
 					document.getElementById('meter-amount').textContent =

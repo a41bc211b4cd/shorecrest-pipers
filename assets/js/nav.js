@@ -11,34 +11,29 @@
 	var favicon = document.createElement('link');
 	favicon.rel = 'icon';
 	favicon.type = 'image/png';
-	favicon.href = 'favicon-32.png';
-	favicon.sizes = '32x32';
+	favicon.href = 'favicon.png';
 	document.head.appendChild(favicon);
-
-	var touchIcon = document.createElement('link');
-	touchIcon.rel = 'apple-touch-icon';
-	touchIcon.href = 'apple-touch-icon.png';
-	document.head.appendChild(touchIcon);
 
 	// ---- Header navigation ----
 
+	// pill: true draws that link as the gold button (style is in pipers.css).
 	var links = [
-		{ href: 'events.html',    icon: 'fa-calendar',    label: 'Events' },
-		{ href: 'fundraiser.html', icon: 'fa-heart',       label: 'Fundraiser' },
+		{ href: '#',               icon: 'fa-calendar',    label: 'Calendar' },
+		{ href: 'fundraiser.html', icon: 'fa-heart',       label: 'Fundraiser', pill: true },
 		{ href: 'history.html',    icon: 'fa-book',        label: 'History' },
 		{ href: '#footer',         icon: 'fa-info-circle', label: 'About' }
 	];
 
 	var navHtml = '<ul>';
 	for (var i = 0; i < links.length; i++) {
+		var classes = 'icon solid ' + links[i].icon;
+		if (links[i].pill) {
+			classes += ' pill';
+		}
 		navHtml += '<li><a href="' + links[i].href +
-			'" class="icon solid ' + links[i].icon + '">' +
+			'" class="' + classes + '">' +
 			links[i].label + '</a></li>';
 	}
-	// Campaign Donate button (issue #3). To remove it after the campaign:
-	// delete this line and the "Donate button" block at the end of
-	// assets/css/pipers.css.
-	navHtml += '<li><a href="fundraiser.html" class="icon solid fa-heart donate">Donate</a></li>';
 	navHtml += '</ul>';
 
 	document.getElementById('main-nav').innerHTML = navHtml;
@@ -80,57 +75,5 @@
 		'</div>';
 
 	document.getElementById('footer').innerHTML = footerHtml;
-
-})();
-
-// ---- Keyboard access (issue #13) ----
-// main.js strips href from the header links (and the About toggle) to
-// attach its own click handlers, which makes them unfocusable and breaks
-// middle-click / open-in-new-tab. This runs BEFORE main.js, so the hrefs
-// are saved in data-href now; once main.js has run (DOMContentLoaded)
-// they are put back. main.js's click handlers call preventDefault, so a
-// restored href is safe. Also keeps the About toggle's aria state and
-// moves focus into the footer panel on open and back to the toggle on
-// close.
-(function() {
-
-	var saved = document.querySelectorAll('#header a[href]');
-	for (var i = 0; i < saved.length; i++) {
-		saved[i].setAttribute('data-href', saved[i].getAttribute('href'));
-	}
-
-	document.addEventListener('DOMContentLoaded', function() {
-
-		var footer = document.getElementById('footer');
-		var toggle = null;
-		var links = document.querySelectorAll('#header a[data-href]');
-
-		for (var j = 0; j < links.length; j++) {
-			var a = links[j];
-			if (!a.hasAttribute('href')) {
-				a.setAttribute('href', a.getAttribute('data-href'));
-			}
-			if (a.getAttribute('data-href') == '#footer') {
-				toggle = a;
-				a.setAttribute('aria-controls', 'footer');
-				a.setAttribute('aria-expanded', 'false');
-			}
-		}
-
-		if (footer && toggle && window.MutationObserver) {
-			footer.setAttribute('tabindex', '-1');
-			footer.setAttribute('aria-label', 'About the Pipers Club');
-			new MutationObserver(function() {
-				var open = footer.classList.contains('active');
-				toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-				if (open) {
-					footer.focus();
-				} else if (footer.contains(document.activeElement)) {
-					toggle.focus();
-				}
-			}).observe(footer, { attributes: true, attributeFilter: ['class'] });
-		}
-
-	});
 
 })();

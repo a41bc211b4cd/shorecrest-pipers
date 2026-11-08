@@ -101,6 +101,27 @@
 		color: #ffffff;
 	}
 
+/* Gold pill button for the Fundraiser link in the nav.
+   nav.js gives that one link the "pill" class. */
+
+	#header nav > ul > li a.pill {
+		background-color: #c9a227;
+		border-radius: 2em;
+		color: #242629;
+		line-height: 2.2em;
+		margin: 0 0.75em;
+		padding: 0 1.2em;
+		vertical-align: middle;
+	}
+
+		#header nav > ul > li a.pill:before {
+			color: #242629;
+		}
+
+		#header nav > ul > li a.pill:hover {
+			color: #242629 !important;
+		}
+
 /* Headings inside the footer panel take the gold. */
 
 	#footer h2 {
@@ -110,36 +131,39 @@
 /* Reading-page layout, shared by history.html and fundraiser.html. */
 
 	#history,
-	#events,
 	#fundraiser {
 		padding: 3em 2em 3em 2em;
 	}
 
 	#history .history-content,
-	#events .history-content,
 	#fundraiser .history-content {
 		margin: 0 auto;
 		max-width: 46em;
 	}
 
 		#history h1,
-		#events h1,
 		#fundraiser h1 {
+			border-bottom: solid 1px #36383c;
 			font-size: 1.75em;
 			margin-bottom: 1.5em;
+			padding-bottom: 0.75em;
 		}
 
 		#history h2,
-		#events h2,
 		#fundraiser h2 {
 			color: #c9a227;
 			margin-top: 2.25em;
 		}
 
 		#history p,
-		#events p,
 		#fundraiser p {
 			color: #a0a0a1;
+		}
+
+		#history hr,
+		#fundraiser hr {
+			border-bottom: solid 1px #36383c;
+			margin: 3em 0;
 		}
 
 	/* On phones the fixed header sits at the top, so keep extra top
@@ -148,7 +172,6 @@
 	@media screen and (max-width: 736px) {
 
 		#history,
-		#events,
 		#fundraiser {
 			padding: 4.5em 1.25em 3em 1.25em;
 		}
@@ -158,6 +181,8 @@
 /* Photo figures (history.html). */
 
 	.history-photo {
+		background: #34363b;
+		border: solid 1px #36383c;
 		margin: 2em 0;
 		max-width: 100%;
 	}
@@ -173,15 +198,41 @@
 			padding: 0.85em 1em;
 		}
 
-/* Donation-goal tartan thermometer (fundraiser.html).
+	/* Two pictures side by side in one figure (the yearbook pages).
+	   On phones they stack instead (see the media query below). */
 
-   The thermometer is inline SVG in the page. #fill-level is a
-   rectangle clipped to the tube and bulb; the page script sets its
-   y/height from the RAISED figure. Scale: $0 at y=310, $6,000 at
-   y=60 in SVG coordinates. */
+		.history-pair {
+			align-items: flex-start;
+			display: flex;
+			gap: 1em;
+		}
+
+			.history-pair img {
+				min-width: 0;
+				width: 50%;
+			}
+
+	@media screen and (max-width: 736px) {
+
+		.history-pair {
+			flex-direction: column;
+		}
+
+			.history-pair img {
+				width: 100%;
+			}
+
+	}
+
+/* Donation thermometer (fundraiser.html).
+
+   The thermometer is drawn in the page itself (inline SVG). The script
+   at the bottom of fundraiser.html moves the tartan "mercury" up from
+   the $0 line to match RAISED. */
 
 	.meter {
 		background: #34363b;
+		border: solid 1px #36383c;
 		margin: 2em 0;
 		padding: 1.5em 1em;
 		text-align: center;
@@ -240,6 +291,11 @@
 			padding: 0 1em 0 0;
 		}
 
+		/* Space after the gold pill, since links here have no left padding. */
+		#header nav > ul > li a.pill {
+			margin: 0 1em 0 0;
+		}
+
 		body {
 			padding: 7em 0 0 0;
 		}
@@ -265,566 +321,4 @@
 
 	.gold {
 		color: #c9a227;
-	}
-
-/* Events page (events.html): upcoming-event list. */
-
-	.event-list {
-		list-style: none;
-		margin: 0 0 2em 0;
-		padding: 0;
-	}
-
-		.event-list li {
-			margin: 0 0 1.5em 0;
-			padding-left: 0;
-		}
-
-		.event-list .event-date {
-			color: #c9a227;
-			font-size: 0.8em;
-			font-weight: 600;
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
-		}
-
-		.event-list .event-name {
-			color: #ffffff;
-			display: block;
-			font-size: 1.25em;
-			margin: 0.15em 0 0.35em 0;
-		}
-
-		.event-list .event-details {
-			color: #a0a0a1;
-			margin: 0 0 0.5em 0;
-		}
-
-/* ==== Donate button (campaign; issue #3) ====
-   Gold pill in the header nav, added by nav.js. To remove after the
-   campaign, delete this block and the Donate line in assets/js/nav.js. */
-
-	#header nav > ul > li a.donate {
-		background-color: #c9a227;
-		border-radius: 999px;
-		color: #242629;
-		font-weight: 600;
-		line-height: 2.2em;
-		margin-left: 0.5em;
-		margin-right: 1.5em; /* matches the header's left padding */
-		padding: 0 1.2em;
-		vertical-align: middle;
-	}
-
-		#header nav > ul > li a.donate:before {
-			color: #242629;
-			float: none;
-			margin: 0 0.5em 0 0;
-		}
-
-		#header nav > ul > li a.donate:hover {
-			background-color: #dcb73a;
-			color: #242629 !important;
-		}
-
-	/* Phone: nav wraps; keep the pill's own padding and a gap before it. */
-	@media screen and (max-width: 736px) {
-
-		#header nav > ul > li a.donate {
-			line-height: 2em;
-			margin-left: 0;
-			margin-right: 0;
-			padding: 0 0.9em;
-		}
-
-	}
-
-	/* Tablet: five items share the row, so tighten the pill. */
-	@media screen and (min-width: 737px) and (max-width: 960px) {
-
-		#header nav > ul > li a.donate {
-			margin-left: 0.25em;
-			padding: 0 0.9em;
-		}
-
-			#header nav > ul > li a.donate:before {
-				margin-right: 0.35em;
-			}
-
-	}
-
-/* Two yearbook pages side by side on the history page; they stack on
-   narrow screens. */
-
-	.history-pair {
-		align-items: flex-start;
-		display: flex;
-		gap: 1em;
-	}
-
-		.history-pair img {
-			flex: 1 1 0;
-			min-width: 0;
-			width: 50%;
-		}
-
-	@media screen and (max-width: 736px) {
-
-		.history-pair {
-			flex-direction: column;
-		}
-
-			.history-pair img {
-				width: 100%;
-			}
-
-	}
-
-/* ==== Home page hero (issue #9) ====
-   A photo, a thin progress bar, one muted line and a Donate button, in
-   that order, at every width. No text over the photo. Sits between
-   #header and #main in index.html, never inside #main (the lightbox would
-   hijack the button). Figures come from assets/js/campaign.js via
-   assets/js/hero.js. To remove after the campaign, delete this block, the
-   hero section in index.html and the campaign.js and hero.js script tags. */
-
-	.hero {
-		margin-top: 1em; /* the phone header is slightly taller than the body padding */
-	}
-
-	.hero .hero-photo {
-		aspect-ratio: 4 / 3;
-		display: block;
-		max-height: 60vh;
-		object-fit: cover;
-		object-position: 50% 35%;
-		width: 100%;
-	}
-
-	.hero .hero-inner {
-		margin: 0 auto;
-		max-width: 30em;
-		padding: 2.5em 1.5em 3em 1.5em;
-		text-align: center;
-	}
-
-	.hero .track {
-		background: rgba(255, 255, 255, 0.14);
-		border-radius: 2px;
-		height: 4px;
-		overflow: hidden;
-	}
-
-	.hero .track[hidden] {
-		display: none;
-	}
-
-	.hero .fill {
-		background: #c9a227;
-		height: 100%;
-		width: 0;
-	}
-
-	.hero .label {
-		color: #9e9e9f;
-		font-size: 0.8em;
-		margin: 1em 0 2em 0;
-	}
-
-	.hero .hero-btn {
-		background: #c9a227;
-		border: 0;
-		border-radius: 4px;
-		color: #1a1a1a !important;
-		display: inline-block;
-		font-size: 0.85em;
-		font-weight: 600;
-		letter-spacing: 0.1em;
-		line-height: 3.2em;
-		min-width: 12em;
-		text-align: center;
-		text-transform: uppercase;
-	}
-
-		.hero .hero-btn:hover {
-			background: #dcb73a;
-			color: #1a1a1a !important;
-		}
-
-	/* Tablet and desktop: the same three controls sit on the photo, low on
-	   the left, under an even dark tint. The tint is the only overlay; the
-	   photo stays a short band so it does not eat the screen. */
-
-	@media screen and (min-width: 737px) {
-
-		.hero {
-			height: clamp(320px, 48vh, 520px);
-			margin-top: 0;
-			overflow: hidden;
-			position: relative;
-		}
-
-		.hero .hero-photo {
-			aspect-ratio: auto;
-			height: 100%;
-			max-height: none;
-			object-position: 50% 38%;
-		}
-
-		.hero:before {
-			background: rgba(10, 14, 18, 0.7);
-			content: '';
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
-		}
-
-		.hero .hero-inner {
-			bottom: 0;
-			left: 0;
-			margin: 0;
-			max-width: 21em;
-			padding: 0 0 2.75em 3em;
-			position: absolute;
-			text-align: left;
-			width: 100%;
-		}
-
-		.hero .label {
-			color: #e2e2e3;
-			margin-bottom: 1.5em;
-		}
-
-		.hero .hero-btn {
-			min-width: 10em;
-		}
-
-	}
-
-/* ==========================================================================
-   Card tint and snappier animations (epic #1).
-   Inserted above the accessibility block, which must stay last.
-
-   1. TINT. main.css already puts a bottom gradient on #main .thumb:after
-      (35% at the bottom, fading out by 35% of the height). That was too
-      light for bright photos, so this block replaces that same layer
-      instead of adding a second one. Darkest ink is the template's own
-      rgb(10,17,25). The scrim is measured in rem, not % of tile height, so
-      it stays tied to the caption on tall phone tiles and short desktop
-      ones. The :after sits above the photo and below the h2.
-
-      Contrast: the caption is white. The worst case is a pure white photo
-      (luminance 1.0) behind it. White text reaches 4.5:1 when the
-      background luminance is at most 0.183, which is a sRGB grey of about
-      117. rgb(10,17,25) over white at alpha a gives about 255-240a, so
-      a must be at least 0.58. Across the caption zone (bottom 7rem, enough
-      for a three-line title) the two layers combine to at least
-      0.74, which is about 8.2:1 on a pure white photo, and 0.65 on hover
-      (about 5.8:1). Real photos are darker than white, so real contrast
-      is higher still.
-
-   2. SPEED. Every template timing is cut by about 35% (x0.65). Original
-      values are in each comment. Rules that exist in the accessibility
-      block (the footer panel slide) are matched with higher specificity,
-      because that block is last and would otherwise win.
-   ========================================================================== */
-
-/* --- 1. Tint ------------------------------------------------------------ */
-
-	#main .thumb:after {
-		background-image:
-			linear-gradient(to top, rgba(10,17,25,0.86) 0, rgba(10,17,25,0.72) 7rem, rgba(10,17,25,0.25) 12rem, rgba(10,17,25,0) 16rem),
-			linear-gradient(rgba(10,17,25,0.08), rgba(10,17,25,0.08));
-		opacity: 1;
-		transition: opacity 0.26s ease-in-out; /* hover glow: 0.4s x 0.65 */
-	}
-
-	/* Hover and keyboard focus: ease the tint back so the photo lights up.
-	   At 0.86 the caption zone is still at least 0.65 alpha over pure
-	   white (about 5.8:1 worst case), and the text-shadow helps more. */
-
-	#main .thumb:hover:after,
-	#main .thumb:has(> a.image:focus-visible):after {
-		opacity: 0.86;
-	}
-
-	#main .thumb > h2 {
-		text-shadow: 0 1px 3px rgba(0,0,0,0.55), 0 0 12px rgba(0,0,0,0.35);
-	}
-
-/* --- 2. Speed ----------------------------------------------------------- */
-
-	/* Tile reveal fade: 1.25s -> 0.8s. */
-	#main .thumb {
-		transition: opacity 0.8s ease-in-out;
-	}
-
-	/* Stagger. Was 0.65s for tile 1, plus 0.15s per tile (0.65s ... 2.3s).
-	   Now 0.42s plus 0.1s per tile (0.42s ... 1.52s). The template's
-	   per-breakpoint "all the rest" delays (1.175s to 2.525s) are replaced
-	   by this same stagger for every tile. */
-	#main .thumb:nth-child(1)  { transition-delay: 0.42s; }
-	#main .thumb:nth-child(2)  { transition-delay: 0.52s; }
-	#main .thumb:nth-child(3)  { transition-delay: 0.62s; }
-	#main .thumb:nth-child(4)  { transition-delay: 0.72s; }
-	#main .thumb:nth-child(5)  { transition-delay: 0.82s; }
-	#main .thumb:nth-child(6)  { transition-delay: 0.92s; }
-	#main .thumb:nth-child(7)  { transition-delay: 1.02s; }
-	#main .thumb:nth-child(8)  { transition-delay: 1.12s; }
-	#main .thumb:nth-child(9)  { transition-delay: 1.22s; }
-	#main .thumb:nth-child(10) { transition-delay: 1.32s; }
-	#main .thumb:nth-child(11) { transition-delay: 1.42s; }
-	#main .thumb:nth-child(12) { transition-delay: 1.52s; }
-	#main .thumb:nth-child(n+13) { transition-delay: 1.52s; }
-
-	/* The delay above would also hold back the hover glow; the tint layer
-	   is a pseudo-element with its own transition, so it is not affected. */
-
-	/* Header slide-in: 1s -> 0.65s. */
-	#header {
-		transition: transform 0.65s ease;
-	}
-
-	/* Header nav item colour: 0.5s -> 0.32s. */
-	#header nav > ul > li a {
-		transition: background-color 0.32s ease;
-	}
-
-	/* Preload spinner: fade 1s -> 0.65s, delay 0.5s -> 0.33s. */
-	body.is-preload #wrapper:before {
-		transition: opacity 0.65s ease-out !important;
-		transition-delay: 0.33s !important;
-	}
-
-	/* Spinner move-out: top 0.75s -> 0.5s, opacity/visibility 0.35s -> 0.23s. */
-	#wrapper:before {
-		transition: top 0.5s ease-in-out, opacity 0.23s ease-out, visibility 0.23s;
-	}
-
-	/* Blur and dim when the footer panel is open: 0.5s -> 0.32s. */
-	#wrapper {
-		transition: filter 0.32s ease;
-	}
-
-	#main {
-		transition: filter 0.32s ease;
-	}
-
-	#wrapper:after,
-	#main:after {
-		transition: opacity 0.32s ease, visibility 0.32s;
-	}
-
-	/* Footer "About" panel slide: 0.5s -> 0.32s. "body .panel" is more
-	   specific than the plain ".panel" rules in the accessibility block
-	   below, so these win even though that block comes later. The
-	   visibility delay (0.5s -> 0.32s) matches the slide. */
-	body .panel {
-		transition: transform 0.32s ease, visibility 0s linear 0.32s;
-	}
-
-	body .panel.active {
-		transition: transform 0.32s ease, visibility 0s linear 0s;
-	}
-
-	/* Quick colour and opacity fades: 0.2s -> 0.13s (links, buttons,
-	   panel closer, lightbox arrows and closer, lightbox edge shade). */
-	a {
-		transition: color 0.13s ease-in-out, border-bottom-color 0.13s ease-in-out;
-	}
-
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button,
-	.button {
-		transition: background-color 0.13s ease-in-out, box-shadow 0.13s ease-in-out, color 0.13s ease-in-out;
-	}
-
-	.panel > .closer,
-	.poptrox-popup:before,
-	.poptrox-popup .closer,
-	.poptrox-popup .nav-previous,
-	.poptrox-popup .nav-next {
-		transition: opacity 0.13s ease-in-out;
-	}
-
-/* --- Reduced motion: near-instant. The spinner is turned off rather than
-   shortened because it loops. !important is needed to beat the template's
-   own !important preload rules and the accessibility block below. The
-   lightbox speeds set in main.js are jQuery animations and are not
-   touched by this block. ------------------------------------------------ */
-
-	@media (prefers-reduced-motion: reduce) {
-
-		*,
-		*:before,
-		*:after,
-		body.is-preload #wrapper:before {
-			transition-duration: 0.01ms !important;
-			transition-delay: 0s !important;
-			animation: none !important;
-			scroll-behavior: auto !important;
-		}
-
-	}
-
-/* ==========================================================================
-   Accessibility and mobile pass (issue #13). Appended last so it wins.
-   Hues are unchanged; only lightness is nudged to reach WCAG AA.
-   Contrast figures are against the real backgrounds (page #242629,
-   panels/inputs #34363b, header #1f2224).
-   ========================================================================== */
-
-/* Grey #707071 was 2.44:1 on the #34363b panels. #9e9e9f is 4.52:1.
-   (#a0a0a1 body text is 5.81:1 on the page and 4.63:1 on panels: fine.) */
-
-	.history-photo figcaption,
-	.meter .meter-note {
-		color: #9e9e9f;
-	}
-
-	.meter svg text {
-		fill: #9e9e9f;
-	}
-
-	::-webkit-input-placeholder {
-		color: #9e9e9f !important;
-	}
-
-	:-moz-placeholder {
-		color: #9e9e9f !important;
-	}
-
-	::-moz-placeholder {
-		color: #9e9e9f !important;
-	}
-
-	:-ms-input-placeholder {
-		color: #9e9e9f !important;
-	}
-
-	::placeholder {
-		color: #9e9e9f !important;
-	}
-
-/* Footer copyright #505051 was 1.88:1 on the panel. #8c8c8d is 4.52:1. */
-
-	#footer .copyright {
-		color: #8c8c8d;
-	}
-
-/* White text on the green #4f9e69 was 3.27:1 (primary buttons, active nav
-   item). #3a7d51 (already used for the pressed state) is 4.96:1. Hover
-   goes darker, not lighter, so white text stays above 4.5:1. */
-
-	input[type="submit"].primary,
-	input[type="reset"].primary,
-	input[type="button"].primary,
-	button.primary,
-	.button.primary,
-	#header nav > ul > li a.active {
-		background-color: #3a7d51;
-	}
-
-		input[type="submit"].primary:hover,
-		input[type="reset"].primary:hover,
-		input[type="button"].primary:hover,
-		button.primary:hover,
-		.button.primary:hover {
-			background-color: #33704a;
-		}
-
-/* Keyboard focus. Gold #c9a227 is 6.27:1 on the page, 5.0:1 on panels and
-   6.61:1 on the header, so it is visible everywhere. Negative offsets keep
-   the ring inside the header links and gallery tiles, which would clip it. */
-
-	a:focus-visible,
-	button:focus-visible,
-	input:focus-visible,
-	select:focus-visible,
-	textarea:focus-visible,
-	[tabindex]:focus-visible {
-		outline: 3px solid #c9a227;
-		outline-offset: 2px;
-	}
-
-	#header a:focus-visible,
-	#main .thumb > a.image:focus-visible {
-		outline-offset: -3px;
-	}
-
-	input[type="text"]:focus-visible,
-	textarea:focus-visible {
-		outline-offset: 0;
-	}
-
-	/* The footer panel takes focus from script when it opens; no ring on
-	   the whole panel. */
-
-	#footer:focus {
-		outline: 0;
-	}
-
-/* Footer panel: it slides off-screen when closed but its links and form
-   fields were still reachable with Tab. Hide it from the keyboard and
-   screen readers until it is open (hide after the slide-out finishes). */
-
-	.panel {
-		visibility: hidden;
-		transition: transform 0.5s ease, visibility 0s linear 0.5s;
-	}
-
-	.panel.active {
-		visibility: visible;
-		transition: transform 0.5s ease, visibility 0s linear 0s;
-	}
-
-/* Nothing should scroll sideways at 320px: let long words and URLs wrap.
-   Checked by reading the CSS: .meter svg is width:100% / max-width:420px,
-   .history-photo img is width:100%, and the phone header (<=736px) wraps
-   its nav with flex-wrap, so no other change is needed. */
-
-	#history,
-	#events,
-	#fundraiser {
-		overflow-wrap: break-word;
-	}
-
-	/* The large Donate button (nowrap, 2.5em side padding) is about as wide
-	   as a 320px screen's content box; trim its side padding on phones. */
-
-	@media screen and (max-width: 480px) {
-
-		.button {
-			padding-left: 1.5em;
-			padding-right: 1.5em;
-		}
-
-	}
-
-/* Phone header nav: wrap generically inside the viewport, however many
-   items there are (a Donate pill may be added), with no per-item widths.
-   Checked in headless Chrome at 335px and 390px frames (320px and 375px
-   plus a classic scrollbar): the nav wraps onto a second row and nothing
-   is clipped or scrolls sideways. */
-
-	@media screen and (max-width: 736px) {
-
-		#header nav {
-			max-width: 100%;
-		}
-
-		#header nav > ul {
-			flex-wrap: wrap;
-			max-width: 100%;
-		}
-
-		#header nav > ul > li {
-			flex: 0 1 auto;
-			max-width: 100%;
-		}
-
 	}

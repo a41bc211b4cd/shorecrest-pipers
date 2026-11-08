@@ -7,25 +7,12 @@
 	Branded and edited for the Shorecrest High School Pipers Club, Shoreline, Washington.
 	School colors: forest green, old gold, navy (from the Clan Gordon tartan).
 -->
-<html lang="en">
+<html>
 	<head>
 		<title>Shorecrest Pipers Club</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="Pipers Club at Shorecrest High School in Shoreline, Washington: Highland bagpiping and drumming in the Clan Gordon tradition. No experience needed!" />
-		<meta property="og:title" content="Shorecrest Pipers Club" />
-		<meta property="og:description" content="Pipers Club at Shorecrest High School in Shoreline, Washington: Highland bagpiping and drumming in the Clan Gordon tradition. No experience needed!" />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://a41bc211b4cd.github.io/shorecrest-pipers/" />
-		<meta property="og:image" content="https://a41bc211b4cd.github.io/shorecrest-pipers/images/share/site.jpg" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="Shorecrest pipers in green doublets and Gordon kilts on a running track at night, with the Shoreline Stadium scoreboard behind them" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Shorecrest Pipers Club" />
-		<meta name="twitter:description" content="Pipers Club at Shorecrest High School in Shoreline, Washington: Highland bagpiping and drumming in the Clan Gordon tradition. No experience needed!" />
-		<meta name="twitter:image" content="https://a41bc211b4cd.github.io/shorecrest-pipers/images/share/site.jpg" />
-		<meta name="twitter:image:alt" content="Shorecrest pipers in green doublets and Gordon kilts on a running track at night, with the Shoreline Stadium scoreboard behind them" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/pipers.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -41,65 +28,41 @@
 	    <nav id="main-nav"></nav>
     </header>
 
-				<!-- Hero (issue #9): photo, progress bar, Donate. Deliberately OUTSIDE #main:
-				     main.js applies the poptrox lightbox to every link in #main, which would
-				     hijack the button. The figures come only from assets/js/campaign.js,
-				     filled in by assets/js/hero.js. Without them the text below is what people see. -->
-				<section class="hero" aria-label="Pipes for the Pipers fundraiser">
-					<img class="hero-photo" src="images/fulls/fundraiser.jpg" alt="Pipers in green doublets and Gordon kilts posing on a running track at night, with the Shoreline Stadium scoreboard behind them" />
-					<div class="hero-inner" data-campaign-bar>
-						<div class="track" aria-hidden="true" hidden><div class="fill"></div></div>
-						<p class="label" role="status">Raising money for three new sets of pipes</p>
-						<a href="fundraiser.html" class="hero-btn">Donate</a>
-					</div>
-				</section>
-
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Fundraiser tile RETIRED (issue #9): the hero above now makes the ask
-						     (photo, progress, Donate button), so a second fundraiser tile would
-						     repeat it. Code kept for next year's campaign: uncomment it to bring
-						     it back. Its onclick is deliberate, because the poptrox lightbox in
-						     main.js intercepts every anchor inside #main and tries to open it
-						     as an image; the inline handler navigates straight to the page. -->
-						<!--
+						<!-- Fundraiser tile.
+						     The onclick is deliberate: the poptrox lightbox in main.js
+						     intercepts every anchor inside #main and tries to open it
+						     as an image. The inline handler runs before the plugin's,
+						     navigates straight to the fundraiser page, and its
+						     return false stops the lightbox from firing.
+						     Photo needed: pipers in their PC t-shirts (per the
+						     fundraising email). Drop it in as
+						     images/thumbs/fundraiser.jpg (a wide crop ~ 600x360
+						     or larger works best as a thumbnail).
+						     TEMPORARY: the current picture is AI-generated. Replace it
+						     with a real photo before the site goes public. -->
 						<article class="thumb">
-							<a href="fundraiser.html" class="image" onclick="window.location.href='fundraiser.html'; return false;"><img src="images/thumbs/fundraiser.jpg" alt="Pipers in green doublets and Gordon kilts posing on a running track at night, with the Shoreline Stadium scoreboard behind them" /></a>
+							<a href="fundraiser.html" class="image" onclick="window.location.href='fundraiser.html'; return false;"><img src="images/thumbs/fundraiser.jpg" alt="Pipers in Pipers Club t-shirts" /></a>
 							<h2>Fundraiser: Pipes for the Pipers</h2>
 							<p>Our 2026-27 fundraiser: $6,000 for three new sets of pipes. Click to donate.</p>
 						</article>
-						-->
+
+                    <!--When the fundraiser is over, comment out the preceding tile but retain the code for future use. New tiles can be added for new events, announcements, etc. -->     
                         
+						<!-- TEMPORARY: tiles 01, 02 and 04 use AI-generated pictures.
+						     Replace each with a real photo (same file names in
+						     images/thumbs/ and images/fulls/) before the site goes public. -->
 						<article class="thumb">
-							<a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.jpg" alt="A row of pipers in green doublets and kilts marching down a street past a crowd of spectators in Ireland" /></a>
-							<h2>Pipes up front</h2>
-							<p>The pipers march at the head of the Highlander Marching Band.</p>
+							<a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.jpg" alt="Pipers of Shorecrest" /></a>
+							<h2>The sound of Shorecrest</h2>
+							<p>The Great Highland Bagpipe, "live" from Shoreline since 1961.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/04.jpg" class="image"><img src="images/thumbs/04.jpg" alt="The Shorecrest band in tartan kilts and Highland dancers in yellow in front of a grand stone building in Ireland, with the Irish flag flying" /></a>
-							<h2>On the road</h2>
-							<p>The band has traveled to Canada, California, and several times to Ireland.</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/07.jpg" class="image"><img src="images/thumbs/07.jpg" alt="Pipers leading a marching band down a street lined with spectators in Ireland" /></a>
-							<h2>In the parade</h2>
-							<p>The Highlanders marched in St. Patrick's Day parades in Ireland in March 2016, and you'll find us at civic events across Shoreline.</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/08.jpg" class="image"><img src="images/thumbs/08.jpg" alt="A drum major in a bearskin and red tunic leads pipers in green doublets, kilts, hose and white spats down a street in Ireland" /></a>
-							<h2>Full dress</h2>
-							<p>Highland dress, head to hose.</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/09.jpg" class="image"><img src="images/thumbs/09.jpg" alt="The Shorecrest band marching past cheering crowds in front of a cathedral in Dublin" /></a>
-							<h2>Across the ocean</h2>
-							<p>The band has taken the pipes to Ireland several times, including the St. Patrick's Day parade in Dublin.</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/10.jpg" class="image"><img src="images/thumbs/10.jpg" alt="Smiling band members in green uniforms and Gordon kilts seated along a table set with teacups" /></a>
-							<h2>No experience needed</h2>
-							<p>No prior music required. Curiosity is enough!</p>
+							<a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.jpg" alt="Drummers of the Pipers Club" /></a>
+							<h2>Street beat</h2>
+							<p>Snare, tenor, and bass drummers drive the band.</p>
 						</article>
 						<article class="thumb">
 							<a href="images/fulls/03.jpg" class="image"><img src="images/thumbs/03.jpg" alt="The Gordon tartan" /></a>
@@ -107,24 +70,53 @@
 							<p>Shorecrest's kilts are the modern Gordon sett, worn with permission of the Clan.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/11.jpg" class="image"><img src="images/thumbs/11.jpg" alt="Close view of a piper in a feathered bonnet blowing into the Highland bagpipes, in a vintage color photo" /></a>
+							<a href="images/fulls/04.jpg" class="image"><img src="images/thumbs/04.jpg" alt="Pipes leading the Highlanders" /></a>
+							<h2>Friday nights</h2>
+							<p>Pipes have escorted the Scots onto the field at home games for 40 years.</p>
+						</article>
+
+						<!-- Tiles 05-12 still show blank placeholder pictures. To add a photo,
+						     save it as images/thumbs/05.jpg (the tile) and images/fulls/05.jpg
+						     (the big view when clicked), and so on for 06-12. -->
+						<article class="thumb">
+							<a href="images/fulls/05.jpg" class="image"><img src="images/thumbs/05.jpg" alt="A beginner with a practice chanter" /></a>
+							<h2>First notes</h2>
+							<p>Every piper starts on the practice chanter to learn the basics.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/06.jpg" class="image"><img src="images/thumbs/06.jpg" alt="A piper playing solo" /></a>
+							<h2>Solo piping</h2>
+							<p>Competing solo builds steady hands and steady nerves.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/07.jpg" class="image"><img src="images/thumbs/07.jpg" alt="The band in a community parade" /></a>
+							<h2>In the parade</h2>
+							<p>You'll find us at civic events across Shoreline and at Marching Band events every spring.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/08.jpg" class="image"><img src="images/thumbs/08.jpg" alt="Full Highland dress" /></a>
+							<h2>Full dress</h2>
+							<p>Highland dress, head to hose.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/09.jpg" class="image"><img src="images/thumbs/09.jpg" alt="Club rehearsal" /></a>
+							<h2>Pipers' Club</h2>
+							<p>We meet Tuesdays and Thursdays after school all year. Everyone is welcome!</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/10.jpg" class="image"><img src="images/thumbs/10.jpg" alt="New members welcome" /></a>
+							<h2>No experience needed</h2>
+							<p>No prior music required. Curiosity is enough!</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/11.jpg" class="image"><img src="images/thumbs/11.jpg" alt="The full pipes" /></a>
 							<h2>About 100 decibels</h2>
 							<p>The chanter whispers; the pipes do not. Always wear your earplugs!</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.jpg" alt="Shorecrest pipers in Gordon tartan and a school building dated 1961" /></a>
-							<h2>The sound of Shorecrest</h2>
-							<p>The Great Highland Bagpipe, "live" from Shoreline since 1961.</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/05.jpg" class="image"><img src="images/thumbs/05.jpg" alt="Black-and-white yearbook photo of a lineup of pipers and drummers in kilts, from a page headed Tradition" /></a>
-							<h2>Tradition</h2>
-							<p>A page from a Shorecrest yearbook, where the pipe band, drummers and Highland lassies carry the school's Scots spirit.</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/06.jpg" class="image"><img src="images/thumbs/06.jpg" alt="Black-and-white yearbook group photo of the pipe band with a bass drum, from a page headed Pipe Band and Highland Lassies" /></a>
-							<h2>Pipe Band and Highland Lassies</h2>
-							<p>Another Shorecrest yearbook page, devoted to the pipe band and the Highland Lassies.</p>
+							<a href="images/fulls/12.jpg" class="image"><img src="images/thumbs/12.jpg" alt="Bydand, the Clan Gordon motto" /></a>
+							<h2>Bydand</h2>
+							<p>The Shorecrest Highlanders' motto in the <a href="https://www.dsl.ac.uk/entry/snd/bydand" target="new">Scots language</a> via Clan Gordon: <i> abiding</i> or <i>steadfast</i>.</p>
 						</article>
 					</div>
 
@@ -140,8 +132,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
            <script src="assets/js/nav.js"></script>
-			<script src="assets/js/campaign.js"></script>
-			<script src="assets/js/hero.js"></script>
 			<script src="assets/js/main.js"></script>
 
 	</body>
