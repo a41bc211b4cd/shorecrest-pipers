@@ -322,3 +322,16 @@
 	.gold {
 		color: #c9a227;
 	}
+
+/* Photo viewer on phones: the template hides the text and the X there,
+   so a tapped tile looked like it was still loading. Show them like on
+   a computer. The text waits until the picture has loaded. */
+
+	@media screen and (max-width: 736px) {
+
+		.poptrox-popup:not(.loading) .caption,
+		.poptrox-popup .closer {
+			display: block !important;
+		}
+
+	}
