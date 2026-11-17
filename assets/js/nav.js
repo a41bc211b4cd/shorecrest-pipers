@@ -40,36 +40,38 @@
 
 	// ---- Footer ----
 
+	// Contact email, assembled at runtime so address-scraping bots
+	// that don't run JavaScript never see it in the page source.
+	// (A placeholder form embed is planned; this mailto link fills
+	// the gap until then.)
+	var emailUser = 'schpipersclub';
+	var emailDomain = 'gmail.com';
+	var mailLink = 'mailto:' + emailUser + '@' + emailDomain +
+		'?subject=' + encodeURIComponent('Shorecrest Pipers Club Inquiry') +
+		'&body=' + encodeURIComponent('Describe your request here:');
+
 	var footerHtml =
 		'<div class="inner split">' +
 			'<div>' +
 				'<section>' +
-					'<h2>The revival</h2>' +
-					'<p>Piping at Shorecrest is back. Since 2024, the Pipers Club has been led by Alexa Boss, an award-winning piper with thirty-four years of experience, twenty-two years of teaching, and international competition credentials including the World Pipe Band Championships. New members are always welcome, no experience needed. <a href="history.html">Read our full history</a>.</p>' +
+					'<h2>The Revival</h2>' +
+					'<p>Piping at Shorecrest is back! Since 2024, the Pipers Club has been led by Alexa Boss, an award-winning piper with thirty-four years of experience, twenty-two years of teaching, and international competition credentials including the World Pipe Band Championships. New members are always welcome, no experience needed. <a href="history.html">Read our full history</a>.</p>' +
 				'</section>' +
 				'<section>' +
-					'<h2>Follow the pipes</h2>' +
+					'<h2>Follow Pipers Club</h2>' +
 					'<ul class="icons">' +
-						'<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>' +
-						'<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>' +
+						// Facebook link commented out until the club has a page.
+						// '<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>' +
+						'<li><a href="https://www.instagram.com/scpipers/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>' +
 					'</ul>' +
 				'</section>' +
-				'<p class="copyright">&copy; Shorecrest Pipers Club. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>' +
+				'<p class="copyright">&copy; Shorecrest Pipers Club. Design: <a href="http://html5up.net">HTML5 UP</a>. Webmaster: CallumCM.</p>' +
 			'</div>' +
 			'<div>' +
 				'<section>' +
 					'<h2>Get in touch</h2>' +
-					'<form method="post" action="#">' +
-						'<div class="fields">' +
-							'<div class="field half"><input type="text" name="name" id="name" placeholder="Name" /></div>' +
-							'<div class="field half"><input type="text" name="email" id="email" placeholder="Email" /></div>' +
-							'<div class="field"><textarea name="message" id="message" rows="4" placeholder="Message"></textarea></div>' +
-						'</div>' +
-						'<ul class="actions">' +
-							'<li><input type="submit" value="Send" class="primary" /></li>' +
-							'<li><input type="reset" value="Reset" /></li>' +
-						'</ul>' +
-					'</form>' +
+					'<p>Questions about joining, booking the Shorecrest Pipers Club for an event, or anything else? <a href="' + mailLink + '">Send us an email</a>, and a club volunteer will write back.</p>' +
+					'<p class="contact-note">Our full contact form is coming soon.</p>' +
 				'</section>' +
 			'</div>' +
 		'</div>';
