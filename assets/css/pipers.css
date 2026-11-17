@@ -7,7 +7,8 @@
 	sits close to navy, so we recolor accents only.
 
 	Also contains styles shared by the reading-layout pages (history.html,
-	fundraiser.html), which replace the thumbnail grid used on index.html.
+	fundraiser.html, calendar.html), which replace the thumbnail grid
+	used on index.html.
 */
 
 /* Accent green replaces the template teal (#34a58e) everywhere it appears. */
@@ -60,7 +61,8 @@
 			input[type="submit"].primary:hover:active,
 			input[type="reset"].primary:hover:active,
 			input[type="button"].primary:hover:active,
-			button.primary:hover:active {
+			button.primary:hover:active,
+			.button.primary:hover:active {
 				background-color: #3a7d51;
 			}
 
@@ -128,21 +130,25 @@
 		color: #c9a227;
 	}
 
-/* Reading-page layout, shared by history.html and fundraiser.html. */
+/* Reading-page layout, shared by history.html, fundraiser.html,
+   and calendar.html. */
 
 	#history,
-	#fundraiser {
+	#fundraiser,
+	#calendar {
 		padding: 3em 2em 3em 2em;
 	}
 
 	#history .history-content,
-	#fundraiser .history-content {
+	#fundraiser .history-content,
+	#calendar .history-content {
 		margin: 0 auto;
 		max-width: 46em;
 	}
 
 		#history h1,
-		#fundraiser h1 {
+		#fundraiser h1,
+		#calendar h1 {
 			border-bottom: solid 1px #36383c;
 			font-size: 1.75em;
 			margin-bottom: 1.5em;
@@ -150,18 +156,21 @@
 		}
 
 		#history h2,
-		#fundraiser h2 {
+		#fundraiser h2,
+		#calendar h2 {
 			color: #c9a227;
 			margin-top: 2.25em;
 		}
 
 		#history p,
-		#fundraiser p {
+		#fundraiser p,
+		#calendar p {
 			color: #a0a0a1;
 		}
 
 		#history hr,
-		#fundraiser hr {
+		#fundraiser hr,
+		#calendar hr {
 			border-bottom: solid 1px #36383c;
 			margin: 3em 0;
 		}
@@ -172,7 +181,8 @@
 	@media screen and (max-width: 736px) {
 
 		#history,
-		#fundraiser {
+		#fundraiser,
+		#calendar {
 			padding: 4.5em 1.25em 3em 1.25em;
 		}
 
@@ -338,4 +348,6 @@
 
 /* Gold for events in calendar file. */
 
-.event-meta { color: #c9a227; }
+	.event-meta {
+		color: #c9a227;
+	}
