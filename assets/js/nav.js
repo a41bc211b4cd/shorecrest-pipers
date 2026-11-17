@@ -19,7 +19,7 @@
 	// pill: true draws that link as the gold button (style is in pipers.css).
 	var links = [
 		{ href: '#',               icon: 'fa-calendar',    label: 'Calendar' },
-		{ href: 'fundraiser.html', icon: 'fa-heart',       label: 'Fundraiser', pill: true },
+		{ href: 'fundraiser.html', icon: 'fa-heart',       label: 'Got Pipes? Fundraiser', pill: true },
 		{ href: 'history.html',    icon: 'fa-book',        label: 'History' },
 		{ href: '#footer',         icon: 'fa-info-circle', label: 'About' }
 	];
