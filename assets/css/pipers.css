@@ -370,3 +370,24 @@
 	#main .thumb > h2 {
 		left: 1.75em;
 	}
+
+/* Event entries (calendar.html): gold quote-box left border. */
+
+	#calendar .event {
+		border-left: 4px solid #c9a227;
+		margin: 1.75em 0;
+		padding: 0.1em 0 0.1em 1.5em;
+	}
+
+		#calendar .event h3 {
+			color: #ffffff;
+			margin-bottom: 0.35em;
+		}
+
+		#calendar .event .event-meta {
+			margin-bottom: 0.5em;
+		}
+
+		#calendar .event p:last-child {
+			margin-bottom: 0;
+		}
