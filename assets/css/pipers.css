@@ -11,6 +11,11 @@
 	used on index.html.
 */
 
+/* Importing an extra weight of the template font to display semibold properly
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:600");
+
 /* Accent green replaces the template teal (#34a58e) everywhere it appears. */
 
 	a {
