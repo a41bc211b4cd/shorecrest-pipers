@@ -351,3 +351,17 @@
 	.event-meta {
 		color: #c9a227;
 	}
+
+/* Tile headlines: dark scrim so titles read over any photo. */
+
+	#main .thumb > h2 {
+		background: rgba(18, 20, 22, 0.6);
+		border-radius: 0.2em;
+		font-weight: 600;
+		padding: 0.25em 0.5em;
+	}
+
+	/* Pull the caption in slightly so the scrim clears the tile edge. */
+	#main .thumb > h2 {
+		left: 1.75em;
+	}
