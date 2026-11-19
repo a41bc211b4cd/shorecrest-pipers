@@ -391,3 +391,36 @@
 		#calendar .event p:last-child {
 			margin-bottom: 0;
 		}
+
+/* Donation zone (fundraiser.html): button/QR beside the thermometer.
+   Markup order puts the CTA first, so phones stack it on top. */
+
+	.donation-zone {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.donation-zone .cta {
+		text-align: center;
+	}
+
+	@media screen and (min-width: 737px) {
+
+		.donation-zone {
+			flex-direction: row;
+			align-items: center;
+			gap: 1em;
+		}
+
+		/* Button/QR column takes its natural width; the thermometer
+		   expands to fill the remaining half-ish of the row. */
+		.donation-zone .cta {
+			flex: 0 0 auto;
+		}
+
+		.donation-zone .meter {
+			flex: 1 1 auto;
+		}
+
+	}
