@@ -41,98 +41,110 @@
 								<p>The Shorecrest Pipers Club is raising $6,000 this winter to buy <span class="gold">three new sets of Great Highland Bagpipes</span> and equipment for our rapidly growing program, to keep it free for anyone who wants to take part. A full set of pipes is a serious investment, and each set the club owns means one more student can make the move from the practice chanter to full pipes for free. This is a great way to support music education at Shorecrest, even for students not enrolled in music classes. Help us sustain and grow the 60-year tradition of bagpipes at Shorecrest by donating today!</p>
 							</section>
 
-							<!-- Tartan thermometer.
-							     The mercury fills with a Clan Gordon-inspired tartan
-							     pattern (defined in <defs> below). #fill-level is the
-							     rectangle that grows upward as donations arrive; the
-							     script at the bottom of the page drives it from RAISED.
-                                 
-                               Update the current earnings by updating the variable RAISED at the bottom in scripts.
+							<!-- Donation zone: the button and QR code come FIRST
+							     in the markup, so on phones they appear above the
+							     thermometer. On wider screens the CSS in pipers.css
+							     lays the two blocks out side by side, button/QR on
+							     the left, thermometer on the right. -->
+							<div class="donation-zone">
 
-							     Shape: squared-off tube with rounded top corners (no
-							     dome), flowing into a wide oval bulb at the bottom.
-							     The glass is one outline, so the tube and bulb join
-							     cleanly and the tartan never covers the edge. -->
-							<div class="meter">
-								<svg viewBox="0 0 300 400" role="img" aria-labelledby="meter-title meter-desc">
-									<title id="meter-title">Donation thermometer</title>
-									<desc id="meter-desc">A thermometer fills with the Gordon tartan as donations approach the $6,000 goal.</desc>
+								<p class="cta">
+									<a href="https://www.zeffy.com/en-US/ticketing/got-pipes" class="button primary large">Donate online</a><br />
+									<img src="images/got-pipes-qr.png" alt="QR code for the Got Pipes? donation page on Zeffy" width="180" height="180" /><br />
+									<span class="cta-note">Scan to give with your phone</span>
+								</p>
 
-									<defs>
-										<!-- Clan Gordon-inspired tartan tile: deep green
-										     ground, navy bands with gold selvedges, black
-										     pivot lines. Simplified sett, not registered. -->
-										<pattern id="gordon" width="64" height="64" patternUnits="userSpaceOnUse">
-											<rect width="64" height="64" fill="#1d3a22" />
-											<!-- vertical navy band with gold edges -->
-											<rect x="24" width="16" height="64" fill="#20304f" fill-opacity="0.85" />
-											<rect x="20" width="4" height="64" fill="#c9a227" fill-opacity="0.9" />
-											<rect x="40" width="4" height="64" fill="#c9a227" fill-opacity="0.9" />
-											<!-- horizontal navy band with gold edges -->
-											<rect y="24" width="64" height="16" fill="#20304f" fill-opacity="0.85" />
-											<rect y="20" width="64" height="4" fill="#c9a227" fill-opacity="0.9" />
-											<rect y="40" width="64" height="4" fill="#c9a227" fill-opacity="0.9" />
-											<!-- fine black pivot lines, both directions -->
-											<rect x="32" width="2" height="64" fill="#101418" fill-opacity="0.7" />
-											<rect y="32" width="64" height="2" fill="#101418" fill-opacity="0.7" />
-										</pattern>
+								<!-- Tartan thermometer.
+								     The mercury fills with a Clan Gordon-inspired tartan
+								     pattern (defined in <defs> below). #fill-level is the
+								     rectangle that grows upward as donations arrive; the
+								     script at the bottom of the page drives it from RAISED.
 
-										<!-- Glass outline: one shape for the tube and bulb together.
-										     Tube: x=120 to 160, rounded top corners at y=40.
-										     Bulb: oval at cx=140 cy=334, rx=36 ry=24. -->
-										<path id="glass-outline" d="M120 314.04 V50 A10 10 0 0 1 130 40 H150 A10 10 0 0 1 160 50 V314.04 A36 24 0 1 1 120 314.04 Z" />
+								     Update the current earnings by updating the variable RAISED at the bottom in scripts.
 
-										<!-- Mercury area: the same shape, shrunk a little so the
-										     tartan leaves a small gap inside the glass. -->
-										<clipPath id="tube-clip">
-											<path d="M125.5 317.72 V50 A4.5 4.5 0 0 1 130 45.5 H150 A4.5 4.5 0 0 1 154.5 50 V317.72 A30.5 18.5 0 1 1 125.5 317.72 Z" />
-										</clipPath>
-									</defs>
+								     Shape: squared-off tube with rounded top corners (no
+								     dome), flowing into a wide oval bulb at the bottom.
+								     The glass is one outline, so the tube and bulb join
+								     cleanly and the tartan never covers the edge. -->
+								<div class="meter">
+									<svg viewBox="0 0 300 400" role="img" aria-labelledby="meter-title meter-desc">
+										<title id="meter-title">Donation thermometer</title>
+										<desc id="meter-desc">A thermometer fills with the Gordon tartan as donations approach the $6,000 goal.</desc>
 
-									<!-- Drawn in three layers, back to front. -->
+										<defs>
+											<!-- Clan Gordon-inspired tartan tile: deep green
+											     ground, navy bands with gold selvedges, black
+											     pivot lines. Simplified sett, not registered. -->
+											<pattern id="gordon" width="64" height="64" patternUnits="userSpaceOnUse">
+												<rect width="64" height="64" fill="#1d3a22" />
+												<!-- vertical navy band with gold edges -->
+												<rect x="24" width="16" height="64" fill="#20304f" fill-opacity="0.85" />
+												<rect x="20" width="4" height="64" fill="#c9a227" fill-opacity="0.9" />
+												<rect x="40" width="4" height="64" fill="#c9a227" fill-opacity="0.9" />
+												<!-- horizontal navy band with gold edges -->
+												<rect y="24" width="64" height="16" fill="#20304f" fill-opacity="0.85" />
+												<rect y="20" width="64" height="4" fill="#c9a227" fill-opacity="0.9" />
+												<rect y="40" width="64" height="4" fill="#c9a227" fill-opacity="0.9" />
+												<!-- fine black pivot lines, both directions -->
+												<rect x="32" width="2" height="64" fill="#101418" fill-opacity="0.7" />
+												<rect y="32" width="64" height="2" fill="#101418" fill-opacity="0.7" />
+											</pattern>
 
-									<!-- 1. Dark inside of the glass (reuses the outline above). -->
-									<use href="#glass-outline" fill="#34363b" />
+											<!-- Glass outline: one shape for the tube and bulb together.
+											     Tube: x=120 to 160, rounded top corners at y=40.
+											     Bulb: oval at cx=140 cy=334, rx=36 ry=24. -->
+											<path id="glass-outline" d="M120 314.04 V50 A10 10 0 0 1 130 40 H150 A10 10 0 0 1 160 50 V314.04 A36 24 0 1 1 120 314.04 Z" />
 
-									<!-- 2. Mercury: tartan-filled bulb (always full) plus
-									     the growing column, kept inside the mercury area. -->
-									<g clip-path="url(#tube-clip)">
-										<ellipse cx="140" cy="334" rx="36" ry="24" fill="url(#gordon)" />
-										<!-- #fill-level: the script moves its top edge to the
-										     amount raised. Its bottom stays hidden in the bulb. -->
-										<rect id="fill-level" x="120" y="310" width="40" height="14" fill="url(#gordon)" />
-									</g>
+											<!-- Mercury area: the same shape, shrunk a little so the
+											     tartan leaves a small gap inside the glass. -->
+											<clipPath id="tube-clip">
+												<path d="M125.5 317.72 V50 A4.5 4.5 0 0 1 130 45.5 H150 A4.5 4.5 0 0 1 154.5 50 V317.72 A30.5 18.5 0 1 1 125.5 317.72 Z" />
+											</clipPath>
+										</defs>
 
-									<!-- 3. Glass edge, drawn last so it sits on top. -->
-									<use href="#glass-outline" fill="none" stroke="#707071" stroke-width="3" stroke-linejoin="round" />
+										<!-- Drawn in three layers, back to front. -->
 
-									<!-- Tick marks and amounts, right side. $0 is at y=310
-									     and $6,000 at y=60, so each $1,000 is 41.7 apart. -->
-									<g fill="#707071" font-size="11" font-family="Helvetica, Arial, sans-serif">
-										<line x1="164" y1="60" x2="172" y2="60" stroke="#707071" stroke-width="2" />
-										<text x="177" y="64">$6,000</text>
-										<line x1="164" y1="101.7" x2="172" y2="101.7" stroke="#707071" stroke-width="2" />
-										<text x="177" y="105.7">$5,000</text>
-										<line x1="164" y1="143.3" x2="172" y2="143.3" stroke="#707071" stroke-width="2" />
-										<text x="177" y="147.3">$4,000</text>
-										<line x1="164" y1="185" x2="172" y2="185" stroke="#707071" stroke-width="2" />
-										<text x="177" y="189">$3,000</text>
-										<line x1="164" y1="226.7" x2="172" y2="226.7" stroke="#707071" stroke-width="2" />
-										<text x="177" y="230.7">$2,000</text>
-										<line x1="164" y1="268.3" x2="172" y2="268.3" stroke="#707071" stroke-width="2" />
-										<text x="177" y="272.3">$1,000</text>
-										<line x1="164" y1="310" x2="172" y2="310" stroke="#707071" stroke-width="2" />
-										<text x="177" y="314">$0</text>
-									</g>
-								</svg>
-								<p class="meter-amount" id="meter-amount">Raised so far: $1,010 of $6,000</p>
-								<p class="meter-note">We update the tartan as donations come in. Watch it climb.</p>
+										<!-- 1. Dark inside of the glass (reuses the outline above). -->
+										<use href="#glass-outline" fill="#34363b" />
+
+										<!-- 2. Mercury: tartan-filled bulb (always full) plus
+										     the growing column, kept inside the mercury area. -->
+										<g clip-path="url(#tube-clip)">
+											<ellipse cx="140" cy="334" rx="36" ry="24" fill="url(#gordon)" />
+											<!-- #fill-level: the script moves its top edge to the
+											     amount raised. Its bottom stays hidden in the bulb. -->
+											<rect id="fill-level" x="120" y="310" width="40" height="14" fill="url(#gordon)" />
+										</g>
+
+										<!-- 3. Glass edge, drawn last so it sits on top. -->
+										<use href="#glass-outline" fill="none" stroke="#707071" stroke-width="3" stroke-linejoin="round" />
+
+										<!-- Tick marks and amounts, right side. $0 is at y=310
+										     and $6,000 at y=60, so each $1,000 is 41.7 apart. -->
+										<g fill="#707071" font-size="11" font-family="Helvetica, Arial, sans-serif">
+											<line x1="164" y1="60" x2="172" y2="60" stroke="#707071" stroke-width="2" />
+											<text x="177" y="64">$6,000</text>
+											<line x1="164" y1="101.7" x2="172" y2="101.7" stroke="#707071" stroke-width="2" />
+											<text x="177" y="105.7">$5,000</text>
+											<line x1="164" y1="143.3" x2="172" y2="143.3" stroke="#707071" stroke-width="2" />
+											<text x="177" y="147.3">$4,000</text>
+											<line x1="164" y1="185" x2="172" y2="185" stroke="#707071" stroke-width="2" />
+											<text x="177" y="189">$3,000</text>
+											<line x1="164" y1="226.7" x2="172" y2="226.7" stroke="#707071" stroke-width="2" />
+											<text x="177" y="230.7">$2,000</text>
+											<line x1="164" y1="268.3" x2="172" y2="268.3" stroke="#707071" stroke-width="2" />
+											<text x="177" y="272.3">$1,000</text>
+											<line x1="164" y1="310" x2="172" y2="310" stroke="#707071" stroke-width="2" />
+											<text x="177" y="314">$0</text>
+										</g>
+									</svg>
+									<p class="meter-amount" id="meter-amount">Raised so far: $1,010 of $6,000</p>
+									<p class="meter-note">We update the tartan as donations come in. Watch it climb.</p>
+								</div>
+
 							</div>
 
-							<p class="cta">
-								<a href="https://www.zeffy.com/en-US/ticketing/got-pipes" class="button primary large">Donate online</a><br /><br />
-								<img src="images/got-pipes-qr.png" alt="QR code for the Got Pipes? donation page on Zeffy" width="180" height="180" /><br />
-								<span class="cta-note">Scan to give with your phone</span><br /><br />
+							<p class="cta cta-details">
 								<span class="cta-note">Donations are processed securely by Shorecrest Boosters (EIN: 91-1367377) through <a href="https://www.zeffy.com/en-US/ticketing/got-pipes">Zeffy</a>, and you will get a tax-deductible receipt from Shorecrest Boosters. You can also use your Zeffy donation receipt to request employer matching if your employer offers it!<br /><br />Prefer to give in person? <a href="calendar.html">Find us at events in Shoreline all December.</a> We also accept <strong class="gold">cash</strong> and <strong class="gold">checks made out to "Shorecrest" (write "Pipers Club" in the memo)</strong>.</span>
 							</p>
 							
