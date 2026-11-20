@@ -4,8 +4,18 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-	History page for the Shorecrest High School Pipers Club, Shoreline, Washington.
+	History page for the Shorecrest Pipers Club, Shoreline, Washington.
 	Photos live in images/history/.
+
+	PAGE STRUCTURE: three top-level sections, each with an id for the
+	jump-to menu (Rosters, Alumni events, Club story). Inside "Club
+	story," the chronological subsections each have their own id
+	(origins, gordon, class, auld, revival, today) so they can be
+	linked directly too.
+
+	TO ADD A NEW YEAR'S ROSTER: duplicate one of the roster sections
+	at the top and update the heading, photo, and names.
+	TO ADD AN ALUMNI EVENT: duplicate a section under "Alumni events."
 -->
 <html>
 	<head>
@@ -34,37 +44,50 @@
 
 							<h1>A brief history of the Shorecrest Pipers</h1>
 
-<section>
-								<h2>2026-2027 pipers</h2>
-							</section>
+							<!-- Jump-to menu. Anchors point at the section ids below. -->
+							<p class="jump-menu">
+								<a href="#rosters">Rosters</a> &middot;
+								<a href="#alumni">Alumni events</a> &middot;
+								<a href="#origins">Club story</a>
+							</p>
+
+						<!-- ==================== ROSTERS ==================== -->
+
+						<section id="rosters">
+							<h2>Rosters</h2>
+						</section>
+
+							<h3>2026&ndash;2027 pipers</h3>
 
 							<figure class="history-photo">
 								<img src="images/history/202627Pipers.jpg" alt="2026 Pipers Group Photo" />
-								<figcaption><i>Left to right:</i> Melanie, Liv (Pipe Sergeant), Ínes, Ethan (Pipe Major), Oliver, Jonas, Magno, Jorge. <i>Not pictured:</i> Phin.</i></figcaption>
+								<figcaption><i>Left to right:</i> Melanie, Liv (Pipe Sergeant), Ínes, Ethan (Pipe Major), Oliver, Jonas, Magno, Jorge. <i>Not pictured:</i> Phin.</figcaption>
 							</figure>
 
-							<section>
-								<h2>2025-2026 pipers</h2>
-							</section>
+							<h3>2025&ndash;2026 pipers</h3>
 
 							<figure class="history-photo">
 								<img src="images/history/202526Pipers.jpg" alt="2025 Pipers Group Photo" />
 								<figcaption><i>Left to right:</i> Liv, Phin, Ínes, Sierra (Pipe Major), Ethan (Pipe Sergeant), Jade</figcaption>
 							</figure>
 
-							<section>
-								<h2>Shorecrest Pipers Alumni</h2>
-							</section>
+						<!-- ==================== ALUMNI EVENTS ==================== -->
+
+						<section id="alumni">
+							<h2>Alumni events</h2>
+						</section>
 
 							<figure class="history-photo">
 								<img src="images/history/2026Alumni.jpg" alt="2026 Alumni Performance" />
 								<figcaption>The Shorecrest Pipers Club and Highland Dancers performed with piper alumni for the Shorecrest Class of 1976 at their 50th High School Reunion at McMenamins in Bothell, WA (November 2026)</figcaption>
 							</figure>
-							
-							<section>
-								<h2>Origins (early 1960s)</h2>
-								<p>Shorecrest High School opened in September 1961, and a pipe band and Highland dance club were founded within the school's first years. Alumni of that first pipe band, whose members graduated in 1965, recall a fellow student founding the group and persuading the administration to support it before it got off the ground.</p>
-							</section>
+
+						<!-- ==================== CLUB STORY ==================== -->
+
+						<section id="origins">
+							<h2>Origins (early 1960s)</h2>
+							<p>Shorecrest High School opened in September 1961, and a pipe band and Highland dance club were founded within the school's first years. Alumni of that first pipe band, whose members graduated in 1965, recall a fellow student founding the group and persuading the administration to support it before it got off the ground.</p>
+						</section>
 
 							<figure class="history-photo">
 								<img src="images/history/01.jpg" alt="Vintage color photo of two pipers and two Highland lassies in tartan standing in front of the Shorecrest school building, whose lettering carries the date 1961" />
@@ -72,24 +95,24 @@
 							</figure>
 
 							<figure class="history-photo">
-								<img src="images/history/1974RoseBowl.jpg" alt="Vintage color photo of SC Pipers and Marching Band at 1974 Rose Bowl performance" />
-								<figcaption>The Shorecrest Pipers Highland Marching Band at their 1947 Rose Bowl performance.</figcaption>
+								<img src="images/history/1974RoseBowl.jpg" alt="Vintage color photo of SC Pipers and SC Marching Band at 1974 Rose Bowl performance" />
+								<figcaption>The Shorecrest Pipers and Highlander Marching Band at their 1974 Rose Bowl performance.</figcaption>
 							</figure>
 
-							<section>
-								<h2>The Gordon tradition (1967)</h2>
-								<p>The student body chose forest green, navy, and old gold as school colors, then discovered the three matched the tartan of Clan Gordon, and adopted the Highlander nickname to match. In 1967 the school received permission from the Chief of the Clan to wear the Gordon tartan and serve as representatives of the Clan, a connection Shorecrest and its pipers have kept ever since. The Clan motto, Bydand, which in Scots means "steadfast," became a motto and part of the school's vocabulary.</p>
-							</section>
+						<section id="gordon">
+							<h2>The Gordon tradition (1967)</h2>
+							<p>The student body chose forest green, navy, and old gold as school colors, then discovered the three matched the tartan of Clan Gordon, and adopted the Highlander nickname to match. In 1967 the school received permission from the Chief of the Clan to wear the Gordon tartan and serve as representatives of the Clan, a connection Shorecrest and its pipers have kept ever since. The Clan motto, Bydand, which in Scots means "steadfast," became a motto and part of the school's vocabulary.</p>
+						</section>
 
 							<figure class="history-photo">
 								<img src="images/history/02.jpg" alt="Close view of the kilts, sporrans and hose of three pipers in the green, navy and gold Gordon tartan" />
 								<figcaption>Kilts in the modern Gordon tartan, as worn by today's pipers.</figcaption>
 							</figure>
 
-							<section>
-								<h2>Piping as a class</h2>
-								<p>Shorecrest was unique among American high schools in originally offering bagpipes as a credited music class, but today it is an extracurricular club activity under the music program. The pipers perform at school events, appear as the school's official symbol at assemblies and ceremonies, and march at the head of the Highlander Marching Band, an all-volunteer spring extracurricular club of more than 100 musicians, flag bearers, dancers, and pipers that is still part of today's Shorecrest. When the pipers strike up "Scotland the Brave," the crowd would traditionally stand and clap along.</p>
-							</section>
+						<section id="class">
+							<h2>Piping as a class</h2>
+							<p>Shorecrest was unique among American high schools in originally offering bagpipes as a credited music class, but today it is an extracurricular club activity under the music program. The pipers perform at school events, appear as the school's official symbol at assemblies and ceremonies, and march at the head of the Highlander Marching Band, an all-volunteer spring extracurricular club of more than 100 musicians, flag bearers, dancers, and pipers that is still part of today's Shorecrest. When the pipers strike up "Scotland the Brave," the crowd would traditionally stand and clap along.</p>
+						</section>
 
 							<figure class="history-photo">
 								<div class="history-pair">
@@ -101,32 +124,32 @@
 
 							<hr />
 
-							<section>
-								<h2>The Auld era (1988–2023)</h2>
-								<p>Kevin Auld began piping as a Shorecrest student in 1988, learning from longtime instructor Don MacKay, and went on to a fourteen-year tenure with the Washington Scottish Pipe Band. He returned to teach the Shorecrest piping program in 2001, a residency that ran more than two decades. Under his instruction the band traveled to Canada, California, and several times to Ireland, including the St. Patrick's Day parade in Dublin, one of the largest parades in the world.</p>
-								<p>In March 2016 the Highlanders traveled to Ireland once more to play in the St. Patrick's Day parade in Dublin and in several other cities. They won "Best Overall Band" in the Dublin competition and "Best Musical Performance" at Limerick.</p>
-							</section>
+						<section id="auld">
+							<h2>The Auld era (1988&ndash;2023)</h2>
+							<p>Kevin Auld began piping as a Shorecrest student in 1988, learning from longtime instructor Don MacKay, and went on to a fourteen-year tenure with the Washington Scottish Pipe Band. He returned to teach the Shorecrest piping program in 2001, a residency that ran more than two decades. Under his instruction the band traveled to Canada, California, and several times to Ireland, including the St. Patrick's Day parade in Dublin, one of the largest parades in the world.</p>
+							<p>In March 2016 the Highlanders traveled to Ireland once more to play in the St. Patrick's Day parade in Dublin and in several other cities. They won "Best Overall Band" in the Dublin competition and "Best Musical Performance" at Limerick.</p>
+						</section>
 
 							<figure class="history-photo">
 								<img src="images/history/03.jpg" alt="The Shorecrest Highlanders band posing with their banner in front of a stone castle gateway in Ireland" />
 								<figcaption>The Highlanders in Ireland, March 2016. Photo from the band's Facebook page.</figcaption>
 							</figure>
 
-							<section>
-								<h2>The revival (2024–present)</h2>
-								<p>After a brief hiatus due to the global COVID pandemic in 2020–2021, the program returned in 2024 under Alexa Boss. She brings thirty-four years of piping and twenty-two years of teaching students of all ages, along with instruction from world-class pipers around the globe. She has competed solo and with bands domestically and internationally, including at the World Pipe Band Championships, winning prizes as both a soloist and a band member. In her words, being part of the revival at Shorecrest is "a dream come true."</p>
-							</section>
+						<section id="revival">
+							<h2>The revival (2024&ndash;present)</h2>
+							<p>After a brief hiatus due to the global COVID pandemic in 2020&ndash;2021, the program returned in 2024 under Alexa Boss. She brings thirty-four years of piping and twenty-two years of teaching students of all ages, along with instruction from world-class pipers around the globe. She has competed solo and with bands domestically and internationally, including at the World Pipe Band Championships, winning prizes as both a soloist and a band member. In her words, being part of the revival at Shorecrest is "a dream come true."</p>
+						</section>
 
 							<figure class="history-photo">
 								<img src="images/history/04.jpg" alt="Pipers and mentors in green doublets and Gordon kilts posing on a running track at night, with the Shoreline Stadium scoreboard behind them" />
 								<figcaption>The Pipers Club today at Shoreline Stadium, before a Scots home game.</figcaption>
 							</figure>
 
-							<section>
-								<h2>Today's club</h2>
-								<p>Students begin on practice chanters before graduating to the full pipes after a few months' regular practice. Pipers and drummers rehearse twice a week after school and perform at school and civic events across Shoreline and the greater Seattle area. The club is open to everyone and welcomes complete beginners—no prior music required. The program feeds a wider regional pipeline: Shorecrest-trained players have gone on to teach and compete with the Northwest Junior Pipe Band, and in 2021 a group of pipers who first met outside Shorecrest founded Cascadia Pipe Band, which rose to Grade 2 and played at the World Pipe Band Championships in Glasgow in 2025.</p>
-								<p><a href="index.html" class="button small">Back to the gallery</a></p>
-							</section>
+						<section id="today">
+							<h2>Today's club</h2>
+							<p>Students begin on practice chanters before graduating to the full pipes after a few months' regular practice. Pipers and drummers rehearse twice a week after school and perform at school and civic events across Shoreline and the greater Seattle area. The club is open to everyone and welcomes complete beginners&mdash;no prior music required. The program feeds a wider regional pipeline: Shorecrest-trained players have gone on to teach and compete with the Northwest Junior Pipe Band, and in 2021 a group of pipers who first met outside Shorecrest founded Cascadia Pipe Band, which rose to Grade 2 and played at the World Pipe Band Championships in Glasgow in 2025.</p>
+							<p><a href="index.html" class="button small">Back to the gallery</a></p>
+						</section>
 
 						</div>
 					</div>
@@ -137,12 +160,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.poptrox.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-            <script src="assets/js/nav.js"></script>
+			<script src="assets/js/nav.js"></script>
 			<script src="assets/js/main.js"></script>
 
 	</body>
