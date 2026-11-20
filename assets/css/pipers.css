@@ -424,3 +424,11 @@
 		}
 
 	}
+
+/* Jump-menu anchors land under the fixed header; nudge them down.
+   Sized for phones (tallest header); desktop needs less but tolerates it. */
+
+	#history section[id],
+	#calendar section[id] {
+		scroll-margin-top: 7.5em;
+	}
