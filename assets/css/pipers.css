@@ -432,3 +432,10 @@
 	#calendar section[id] {
 		scroll-margin-top: 7.5em;
 	}
+
+/* Lightbox captions: stronger backdrop so white text reads
+   over bright photos. */
+
+	.poptrox-popup .caption {
+		background-image: linear-gradient(to top, rgba(16, 16, 16, 0.85) 30%, rgba(16, 16, 16, 0.35) 65%, rgba(16, 16, 16, 0) 100%);
+	}
