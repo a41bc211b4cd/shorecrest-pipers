@@ -439,3 +439,41 @@
 	.poptrox-popup .caption {
 		background-image: linear-gradient(to top, rgba(16, 16, 16, 0.85) 30%, rgba(16, 16, 16, 0.35) 65%, rgba(16, 16, 16, 0) 100%);
 	}
+
+/* Subtle periodic twinkle on promo tiles. Runs every 10 s; the
+   glow ramps up and back down in about a third of a second.
+   Apply class "twinkle" to any tile that should attract the eye. */
+
+	@keyframes pipers-twinkle {
+		0%        { filter: brightness(1); }
+		1.5%      { filter: brightness(1.18) saturate(1.15); }
+		3%        { filter: brightness(1.08); }
+		4.5%      { filter: brightness(1.14); }
+		6%        { filter: brightness(1); }
+		100%      { filter: brightness(1); }
+	}
+
+	.twinkle {
+		animation: pipers-twinkle 10s ease-in-out infinite;
+	}
+
+	/* Phones and anyone who prefers reduced motion: skip it. */
+	@media screen and (max-width: 736px) {
+
+		.twinkle {
+			animation: none;
+		}
+
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+
+		.twinkle {
+			animation: none;
+		}
+
+	}
+
+	/* Preload transition suppressed; don't let the twinkle
+	   fight the tile fade-in (template kills animations while
+	   preloading anyway, so this is belt and suspenders). */
