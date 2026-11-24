@@ -6,22 +6,24 @@
 
 	Calendar landing page for the Shorecrest High School Pipers Club.
 
+	PAGE STRUCTURE: three jump-to sections (Rehearsals, Alumni events,
+	Performances & fundraiser events), like the history page's menu.
+
 	TO ADD AN EVENT:
-	Duplicate one <section class="event"> block below and fill in its
-	three parts in this order:
+	Duplicate one <section class="event"> block inside the right
+	category and fill in its three parts in this order:
 	  1. <h3> = event name
 	  2. <p class="event-meta"> = when (day/date, time) and where
 	  3. <p> = one- or two-sentence description
-	Keep events in chronological order, ongoing/recurring events first.
-	Delete sections whose events have passed. For events not yet
-	confirmed, add "Details to be confirmed." to the description.
+	Keep dated events in chronological order within their section.
+	Delete sections whose events have passed.
 -->
 <html>
 	<head>
 		<title>Calendar | Shorecrest Pipers Club</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="Where and when to hear the Shorecrest High School Pipers Club, gigs, plus our weekly rehearsal schedule. All are welcome." />
+		<meta name="description" content="Where and when to hear the Shorecrest High School Pipers Club: rehearsals, community performances, and fundraiser appearances around Shoreline. All are welcome." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/pipers.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -41,97 +43,107 @@
 					<div id="calendar">
 						<div class="history-content">
 
-							<h1>Where to hear us, gigs, and rehersals</h1>
+							<h1>Where to hear us</h1>
 
 							<section>
-								<p>Rehearsals are open and newcomers are always welcome regardless of experience. Community performances are posted here as they are confirmed, so check back through the season. Travel, workshops, classes are identified accordingly.</p>
+								<p>Rehearsals are open and visitors are always welcome. Performances and fundraiser appearances are posted here as they are confirmed, so check back through the season.</p>
 							</section>
 
-							<!-- ============ EVENTS ============
-							     Copy one section per new event. Ongoing
-							     events first, then dated events in order. -->
+							<!-- Jump-to menu. Anchors point at the section ids below. -->
+							<p class="jump-menu">
+								<a href="#rehearsals">Rehearsals</a> &middot;
+								<a href="#alumni">Alumni events</a> &middot;
+								<a href="#performances">Performances &amp; fundraiser events</a>
+							</p>
+
+						<!-- ==================== REHEARSALS ==================== -->
+
+						<section id="rehearsals">
+							<h2>Rehearsals &amp; club meetings</h2>
+						</section>
 
 							<section class="event">
-								<h3>Pipers Club rehearsal (weekly during school year)</h3>
+								<h3>Pipers Club rehearsal</h3>
 								<p class="event-meta">Every Tuesday and Thursday, 2:45&ndash;3:45 pm &middot; Band Room</p>
-								<p>All are welcome! No experience needed.</p>
+								<p>All are welcome any time! No experience needed!</p>
+							</section>
+
+						<!-- ==================== ALUMNI EVENTS ==================== -->
+
+						<section id="alumni">
+							<h2>Alumni events</h2>
+							<p>Alumni performances will be announced here and on our <a href="history.html">history page</a> as they are scheduled. If you are hosting an alumni event and would like Shorecrest Pipers Club to participate in some way, contact us via About in the navigation bar.</p>
+						</section>
+
+						<!-- ==================== PERFORMANCES ==================== -->
+
+						<section id="performances">
+							<h2>Performances &amp; fundraiser events</h2>
+						</section>
+
+							<section class="event">
+								<h3>Got Pipes? fundraiser launch</h3>
+								<p class="event-meta">Now through December</p>
+								<p>Our <a href="fundraiser.html">Got Pipes? campaign</a> is live: help us buy three new sets of bagpipes. Donate online, or find us at the events below!</p>
 							</section>
 
 							<section class="event">
-								<h3>Spring Marching Band (weekly March&ndash;May 2027)</h3>
-								<p class="event-meta">Mondays after school and evenings (times to be confirmed) &middot; Band Room</p>
-								<p>Spring Marching Band is an extracurricular club, and pipers join the band on an annual trip on Spring Break (this year to Victoria, BC).</p>
-							</section>
-
-							<section class="event">
-								<h3>Tentative: Lake Forest Park Holiday Farmers Market</h3>
-								<p class="event-meta">Sundays, November 22 and December 13</p>
-								<p>A possible club appearance at the market. Details to be confirmed.</p>
+								<h3>Friends of Shorelights, opening night</h3>
+								<p class="event-meta">Thursday, December 3 &middot; time to be announced &middot; Shoreline</p>
+								<p>Pipers play for the Highland dancers while the club promotes the fundraiser.</p>
 							</section>
 
 							<section class="event">
 								<h3>Spree Trees</h3>
-								<p class="event-meta">Tentative: Friday&ndash;Sunday, December 4&ndash;6</p>
-								<p>The Club will be out at Spree Trees, playing holiday tunes among the trees. Consider donating to our <a href="fundraiser.html">"Got Pipes?" fundraiser</a> while you get your tree. Days and times to be announced.</p>
+								<p class="event-meta">Saturday, December 5 &middot; 12:45&ndash;4:30 pm</p>
+								<p>Our first year collaborating with Spree Trees! The full club will be on hand, playing holiday tunes among the trees during parts of the afternoon.</p>
 							</section>
 
 							<section class="event">
-								<h3>Tentative: Richmond Beach Tree Lighting</h3>
-								<p class="event-meta">Saturday, December 5</p>
-								<p>A possible club appearance. Details to be confirmed.</p>
+								<h3>Richmond Beach Tree Lighting</h3>
+								<p class="event-meta">Saturday, December 5 &middot; time to be announced</p>
+								<p>An evening of carols and community the same day as our Spree Trees appearance.</p>
 							</section>
 
 							<section class="event">
-								<h3>Tentative: North City Tree Lighting Festival</h3>
-								<p class="event-meta">Saturday, December 5 &middot; 6:30&ndash;7:30 pm</p>
-								<p>A possible club appearance. Details to be confirmed.</p>
+								<h3>Shorecrest Scots Girls Varsity Basketball v. Edmonds-Woodway</h3>
+								<p class="event-meta">Wednesday, December 9 &middot; 6:30 pm &middot; Shorecrest gym</p>
+								<p>Pipers greet arriving guests outside the gym, and a piper joins the Highland dancers at halftime.</p>
 							</section>
 
 							<section class="event">
-								<h3>Tentative: Basketball game halftime</h3>
-								<p class="event-meta">Wednesday, December 9</p>
-								<p>Club pipers join the dance team for a halftime performance. Details to be confirmed.</p>
+								<h3>To be confirmed</h3>
+								<p class="event-meta">Saturday, December 12</p>
+								<p>A possible additional appearance. Details to be confirmed.</p>
 							</section>
 
 							<section class="event">
-								<h3>Tentative: Winter pep assembly</h3>
-								<p class="event-meta">Friday, December 11</p>
-								<p>The pipes make their appearance at the school's winter pep assembly.</p>
+								<h3>Carols on the Steps</h3>
+								<p class="event-meta">Friday, December 18 &middot; 7:30 am &middot; Shorecrest front steps</p>
+								<p>Start the last day before winter break with carols on the front steps. The Highland Dancers hand out candy canes as everyone arrives. All are welcome!</p>
 							</section>
 
 							<section class="event">
-								<h3>Tentative: Carols on the steps</h3>
-								<p class="event-meta">Friday, December 18 &middot; morning</p>
-								<p>Start the last day before break with carols on the front steps. All are welcome to come listen.</p>
+								<h3><a href="https://www.celticarts.org/series/winter-school">Celtic Arts Foundation Winter School</a></h3>
+								<p class="event-meta">Friday&ndash;Sunday, January 29&ndash;31, 2027 &middot; Seabeck</p>
+								<p>A weekend of instruction from world-class Celtic musicians. Tuition, room, and board scholarships are available from the Celtic Arts Foundation. Contact Alexa Boss for more information and get your registration paperwork in.</p>
 							</section>
 
 							<section class="event">
-								<h3>Tentative: Friends of Shorelights Scottish night</h3>
-								<p class="event-meta">Date to be announced &middot; Shoreline</p>
-								<p>A Scottish-themed evening with dancers and pipers is being planned with the organizers. Details to be confirmed.</p>
-							</section>
+							<h3>Masters of the Scottish Arts</h3>
+							<p class="event-meta">Friday, February 5, 2027 &middot; 7:30 pm &middot; Edmonds Center for the Arts, Edmonds</p>
+							<p>An evening of piping, drumming, and fiddling from masters of the craft, presented with the Celtic Arts Foundation &mdash; a great way to keep the Winter School weekend going. Tickets through the <a href="https://www.edmondscenterforthearts.org/events/masters-of-the-scottish-arts">ECA box office</a>.</p>
+						</section>
 
-							<section class="event">
-								<h3>Celtic Arts Foundation Winter School</h3>
-								<p class="event-meta">Friday&ndash;Sunday, January 29&ndash;31, 2027 &middot; Seabeck, WA</p>
-								<p>A weekend of instruction from world-class Celtic musicians. Tuition, room, and board scholarships are available from the Celtic Arts Foundation. Contact Alexa Boss for details ASAP.</p>
-							</section>
-
-							<section class="event">
-								<h3>Victoria Day Parade - Spring Marching Band - Trip to Victoria, BC</h3>
-								<p class="event-meta">Saturday, May 22, to Monday, May 24 &middot; Spring Marching Band trip to Victoria, BC</p>
-								<p>Pipers will join the Highland Dancers and Spring Marching Band at the Victoria Day Parade. Travel deposit and paperwork due by November 20, 2026. Contact Alexa Boss for more information.</p>
-							</section>
-							
 							<!-- End of events. Add new sections above this comment. -->
 
 							<section>
-								<h2>Subscribing</h2>
-								<p>A subscribable Google Calendar is coming soon: once it is live, club events will appear in your own calendar app automatically!</p>
+								<h2>Following along</h2>
+								<p>Follow <a href="https://www.instagram.com/scpipers/">Shorecrestpipers on Instagram</a> for announcements between events, and watch this page: a subscribable Google Calendar is coming soon, so club events will be able to appear in your own calendar app automatically.</p>
 							</section>
 
 							<section>
-								<p><a href="index.html" class="button small">Back to the gallery</a> &nbsp; <a href="history.html" class="button small">Club history</a> &nbsp; <a href="fundraiser.html" class="button small">"Got Pipes?" Fundraiser</a></p>
+								<p><a href="index.html" class="button small">Back to the gallery</a> &nbsp; <a href="history.html" class="button small">Club history</a> &nbsp; <a href="fundraiser.html" class="button small">Got Pipes? fundraiser</a></p>
 							</section>
 
 						</div>
@@ -143,12 +155,12 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/nav.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.poptrox.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script src="assets/js/nav.js"></script>
 			<script src="assets/js/main.js"></script>
 
 	</body>
